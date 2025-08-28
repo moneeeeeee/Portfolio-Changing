@@ -364,5 +364,29 @@
       </a>
     </nav>
   </footer>
+    <!-- JS for filtering -->
+  <script>
+    const filterButtons = document.querySelectorAll('#projects-filter .chip');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update chip active state
+        filterButtons.forEach(b => b.classList.remove('chip-active'));
+        button.classList.add('chip-active');
+
+        const filter = button.dataset.filter;
+
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.dataset.tags.includes(filter)) {
+            card.style.display = 'inline-block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
