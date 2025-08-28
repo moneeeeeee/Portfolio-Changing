@@ -9,11 +9,29 @@
   --radius: 14px;
 }
 
-:root { --topbar-h: 56px; }   /* tweak if your header is taller */
+:root { --topbar-h: 56px; }
+
+/* Global offset for in-page anchors */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--topbar-h) + 12px);
+}
+
+/* Extra safety: per-section offset as well */
 section,
 .site-header {
   scroll-margin-top: calc(var(--topbar-h) + 12px);
 }
+
+/* Belt-and-suspenders shim for older/quirky browsers */
+.section[id]::before,
+.site-header::before {
+  content: "";
+  display: block;
+  height: var(--topbar-h);
+  margin-top: calc(var(--topbar-h) * -1);
+}
+
 
 /* Base */
 * { box-sizing: border-box; }
