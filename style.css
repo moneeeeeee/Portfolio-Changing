@@ -284,6 +284,55 @@ body {
 }
 .socials a:hover { transform: translateY(-1px); }
 
+/* Chip bars (Projects + Work) */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0 18px;
+}
+
+/* Chip button */
+.chips .chip {
+  appearance: none;
+  border: 0;
+  background: var(--brand-ghost);
+  color: var(--brand);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.chips .chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(37,99,235,.18);
+}
+
+/* Active / selected chip */
+.chips .chip-active,
+.chips .chip[aria-selected="true"] {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(37,99,235,.28);
+}
+
+/* Keyboard focus */
+.chips .chip:focus-visible {
+  outline: 3px solid rgba(37,99,235,.35);
+  outline-offset: 2px;
+}
+
+/* Compact on small screens */
+@media (max-width: 640px) {
+  .chips .chip { padding: 7px 10px; font-size: .9rem; }
+}
+
+
 /* Responsive */
 @media (max-width: 640px) {
   .avatar { width: 52px; height: 52px; font-size: 0.95rem; }
