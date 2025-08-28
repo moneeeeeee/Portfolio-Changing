@@ -297,6 +297,45 @@
   </div>
 </section>
 
+<!-- Work chip filters -->  
+<script>
+(function workTypeFilter(){
+  const workSection = document.getElementById('work');
+  if (!workSection) return;
+
+  const chipBar = workSection.querySelector('[aria-label="Experience type filters"]');
+  const chips = chipBar ? chipBar.querySelectorAll('.chip') : [];
+  const cards = workSection.querySelectorAll('.work-card');
+
+  function apply(type){
+    cards.forEach(card => {
+      const t = card.dataset.type || 'work';
+      card.style.display = (type === 'all' || t === type) ? '' : 'none';
+    });
+  }
+
+  // init
+  apply('all');
+
+  // click handling
+  chips.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // visual state
+      chips.forEach(c => { 
+        c.classList.remove('chip-active'); 
+        c.setAttribute('aria-selected','false');
+      });
+      btn.classList.add('chip-active');
+      btn.setAttribute('aria-selected','true');
+
+      // filter
+      const type = btn.dataset.filter || 'all';
+      apply(type);
+    });
+  });
+})();
+</script>
+
   </main>
 
   <footer class="site-footer">
