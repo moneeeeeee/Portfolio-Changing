@@ -125,8 +125,29 @@ body {
 .project-card .tech {
   color: var(--muted);
   margin-top: 8px;
+
+/* Projects grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* 1 per row on mobile */
+  gap: 18px;
 }
 
+/* 2 per row on wider screens */
+@media (min-width: 820px) {
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Optional: make cards full height in each grid cell */
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+.project-card .buttons { margin-top: auto; }
+
+  
 /* Tool badges */
 .tool-badges {
   list-style: none;
