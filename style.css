@@ -23,16 +23,6 @@ section,
   scroll-margin-top: calc(var(--topbar-h) + 12px);
 }
 
-/* Belt-and-suspenders shim for older/quirky browsers */
-.section[id]::before,
-.site-header::before {
-  content: "";
-  display: block;
-  height: var(--topbar-h);
-  margin-top: calc(var(--topbar-h) * -1);
-}
-
-
 /* Base */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
