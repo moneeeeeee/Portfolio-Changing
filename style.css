@@ -97,7 +97,6 @@ body {
   .hero-inner { padding: 28px 16px; }
 }
 
-
 /* Layout */
 .container {
   max-width: 960px;
@@ -194,6 +193,68 @@ body {
   color: var(--brand);
   box-shadow: none;
 }
+
+/* Work / Experience */
+.work-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative; /* allows adding vertical line later */
+  margin-left: 20px;   /* space for line if added */
+}
+
+.work-grid::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--brand-ghost);
+  border-radius: 2px;
+  display: none; /* toggle to block when you want the timeline line */
+}
+
+.work-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.work-head {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6px;
+}
+
+.work-title {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.role {
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.timeplace {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.work-blurb {
+  margin: 8px 0;
+  color: var(--muted);
+}
+
+.work-points {
+  padding-left: 18px;
+  margin: 0;
+}
+
+
 
 /* Footer */
 .site-footer {
