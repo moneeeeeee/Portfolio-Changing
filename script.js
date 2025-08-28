@@ -1,28 +1,197 @@
-// Highlight active tab while scrolling
-const links = document.querySelectorAll('.nav-link');
-const sections = [...document.querySelectorAll('section.section, section.hero')];
+// ---------- utilities ----------
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
-function setActive() {
-  const y = window.scrollY + 100;
-  let current = 'projects';
-  sections.forEach(sec => {
-    const top = sec.offsetTop;
-    if (y >= top) current = sec.id || 'projects';
-  });
-  links.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-  });
+// keep CSS var in sync with sticky header height
+function setTopbarHeight() {
+  const h = $('.topbar')?.offsetHeight || 56;
+  document.documentElement.style.setProperty('--topbar-h', h + 'px');
 }
-setActive();
-window.addEventListener('scroll', setActive);
+window.addEventListener('load', setTopbarHeight);
+window.addEventListener('resize', setTopbarHeight);
 
-// Smooth scroll for in-page links
-links.forEach(a => {
-  a.addEventListener('click', e => {
-    const href = a.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      e.preventDefault();
-      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+document.addEventListener('DOMContentLoaded', () => {
+  // =========================================================
+  // 1) SKILLS FILTER (Projects + Work)  — multi-select + AND/OR + Clear
+  //    HTML requirements:
+  //    - container with id="projects-filter"
+  //    - chips: <button class="chip" data-filter="Data Science">...</button>
+  //    - optional clear: <button class="chip clear-chip">Clear</button>
+  //    - radios name="filterMode" with values "and" | "or"
+  //    - each card has data-tags="tag1, tag2, ..."
+  // =========================================================
+  const skillsBar  = $('#projects-filter');
+  const modeInputs = $$('input[name="filterMode"]');
+
+  const selectedSkills = new Set();
+  let skillMode = 'and'; // 'and' or 'or'
+
+  const parseTags = s =>
+    (s || '')
+      .toLowerCase()
+      .split(',')
+      .map(t => t.trim())
+      .filter(Boolean);
+
+  function matchSkills(card) {
+    if (selectedSkills.size === 0) return true;
+    const tags = new Set(parseTags(card.dataset.tags));
+    if (skillMode === 'and') {
+      for (const want of selectedSkills) if (!tags.has(want)) return false;
+      return true;
+    } else {
+      for (const want of selectedSkills) if (tags.has(want)) return true;
+      return false;
     }
+  }
+
+  function applyFilters() {
+    // fresh node lists in case DOM changes later
+    const projectCards = $$('.project-card');
+    const workCards    = $$('.work-card');
+
+    projectCards.forEach(c => {
+      const show = matchSkills(c);
+      c.style.display = show ? '' : 'none';
+    });
+
+    workCards.forEach(c => {
+      const workOk = matchWorkType(c);     // set in section 2
+      const skillOk = matchSkills(c);
+      c.style.display = (workOk && skillOk) ? '' : 'none';
+    });
+  }
+
+  // chips: toggle multi-select; clear resets all
+  if (skillsBar) {
+    const clearBtn = skillsBar.querySelector('.clear-chip');
+    const chips = $$('.chip', skillsBar).filter(c => !c.classList.contains('clear-chip'));
+
+    function resetSkillsUI() {
+      chips.forEach(c => {
+        c.classList.remove('chip-active');
+        c.setAttribute('aria-pressed', 'false');
+      });
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        selectedSkills.clear();
+        resetSkillsUI();
+        applyFilters();
+      });
+    }
+
+    chips.forEach(btn => {
+      const tag = (btn.dataset.filter || '').toLowerCase();
+      btn.setAttribute('aria-pressed', 'false');
+      btn.addEventListener('click', () => {
+        const isOn = btn.classList.toggle('chip-active');
+        btn.setAttribute('aria-pressed', String(isOn));
+        if (isOn) selectedSkills.add(tag);
+        else selectedSkills.delete(tag);
+        applyFilters();
+      });
+    });
+  }
+
+  // AND / OR radio toggle
+  modeInputs.forEach(r => {
+    r.addEventListener('change', () => {
+      if (r.checked) {
+        skillMode = r.value === 'or' ? 'or' : 'and';
+        applyFilters();
+      }
+    });
+  });
+
+  // =========================================================
+  // 2) WORK FILTER (All | Work | Volunteering)
+  //    HTML requirements:
+  //    - container id="work-type-filter"
+  //    - chips with data-filter="all|work|volunteering"
+  //    - each .work-card has data-type="work" or "volunteering"
+  // =========================================================
+  const workTypeBar = $('#work-type-filter');
+  let workType = 'all';
+
+  function matchWorkType(card) {
+    if (!card.classList.contains('work-card')) return true; // ignore non-work cards
+    if (workType === 'all') return true;
+    return (card.dataset.type || '').toLowerCase() === workType;
+  }
+
+  if (workTypeBar) {
+    const typeChips = $$('.chip', workTypeBar);
+    typeChips.forEach(btn => {
+      btn.addEventListener('click', () => {
+        typeChips.forEach(c => {
+          c.classList.remove('chip-active');
+          c.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('chip-active');
+        btn.setAttribute('aria-selected', 'true');
+        workType = (btn.dataset.filter || 'all').toLowerCase();
+        applyFilters();
+      });
+    });
+  }
+
+  // initial paint
+  applyFilters();
+
+  // =========================================================
+  // 3) NAV: highlight active section on scroll + smooth scroll
+  //    HTML requirements:
+  //    - .nav-link href="#about|#projects|#work|#contact"
+  //    - sections with matching ids
+  // =========================================================
+  const navLinks = $$('.nav-link');
+  const byHash   = Object.fromEntries(navLinks.map(a => [a.getAttribute('href'), a]));
+
+  // smooth scroll (native CSS also helps if you set scroll-behavior: smooth)
+  navLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        $(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // IntersectionObserver is more reliable than offsetTop
+  const topbarOffset = () => (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--topbar-h')) || 56);
+  let observer;
+
+  function makeObserver() {
+    if (observer) observer.disconnect();
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = '#' + entry.target.id;
+        const link = byHash[id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          // clear all first
+          navLinks.forEach(n => n.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, {
+      // trigger when section top crosses below sticky header
+      rootMargin: `-${topbarOffset() + 8}px 0px -70% 0px`,
+      threshold: 0
+    });
+
+    ['about','projects','work','contact']
+      .map(id => $('#' + id))
+      .filter(Boolean)
+      .forEach(sec => observer.observe(sec));
+  }
+
+  makeObserver();
+  window.addEventListener('resize', () => {
+    setTopbarHeight();
+    makeObserver();
   });
 });
