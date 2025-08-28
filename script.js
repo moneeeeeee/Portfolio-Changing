@@ -205,3 +205,77 @@ document.addEventListener('DOMContentLoaded', () => {
     setTopbarHeight();
     makeObserver();
   });
+
+  // ============================
+// 4) CONTACT FORM (Formspree)
+// ============================
+(() => {
+  const form   = document.getElementById('contact-form');
+  if (!form) return;
+
+  const status = document.getElementById('contact-status');
+  const button = form.querySelector('.contact-submit');
+
+  // simple helpers
+  const setStatus = (msg, cls) => {
+    status.textContent = msg;
+    status.className = `status ${cls || ''}`.trim();
+  };
+
+  const setFieldError = (id, message) => {
+    const wrap = form.querySelector(`#${id}`)?.closest('.field');
+    if (!wrap) return;
+    wrap.classList.toggle('field-error', !!message);
+    const hint = wrap.querySelector('.field-hint');
+    if (hint) hint.textContent = message || '';
+  };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setStatus('', '');
+    setFieldError('name', '');
+    setFieldError('email', '');
+    setFieldError('message', '');
+
+    // basic client validation
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const msg = form.message.value.trim();
+    let hasErr = false;
+
+    if (!name)   { setFieldError('name', 'Please tell me your name.'); hasErr = true; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setFieldError('email', 'Please enter a valid email.');
+      hasErr = true;
+    }
+    if (!msg)    { setFieldError('message', 'Please write a short message.'); hasErr = true; }
+    if (hasErr) return;
+
+    // submit to Formspree via fetch
+    button.disabled = true;
+    button.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if (res.ok) {
+        form.reset();
+        setStatus('Thanks! Your message was sent.', 'ok');
+      } else {
+        const data = await res.json().catch(() => ({}));
+        const firstError = data?.errors?.[0]?.message || 'Something went wrong.';
+        setStatus(firstError, 'error');
+      }
+    } catch (err) {
+      setStatus('Network error — please try again in a moment.', 'error');
+    } finally {
+      button.disabled = false;
+      button.textContent = 'SEND';
+    }
+  });
+})();
+
