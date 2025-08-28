@@ -337,36 +337,56 @@
     </nav>
   </footer>
 
-
 <script src="script.js" defer></script>
 
 <!-- CONTACT -->
-<section id="contact" class="section contact-section">
+<section id="contact" class="section">
   <h2>Contact</h2>
-  <p class="contact-lead">
-    What led you here? What are you looking for? I would love to hear from you over a virtual coffee chat!
-  </p>
 
-  <form class="contact-card" name="contact" method="post">
-    <div class="field">
-      <label for="name">Your Name</label>
-      <input id="name" name="name" type="text" placeholder="What's your name?" required>
-    </div>
+  <div class="contact-card">
+    <p class="contact-intro">
+      <strong>Let’s talk.</strong><br>
+      What led you here? What are you looking for? I’d love to hear from you over a virtual coffee chat!
+    </p>
 
-    <div class="field">
-      <label for="email">Your Email</label>
-      <input id="email" name="email" type="email" placeholder="What's your email?" required>
-    </div>
+    <!-- Replace YOUR_FORM_ID below after you create the form on Formspree -->
+    <form id="contact-form" action="https://formspree.io/f/mwpnpgag" method="POST" novalidate>
+      <!-- Honeypot (spam trap) -->
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
 
-    <div class="field">
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="6" placeholder="What brings you here?" required></textarea>
-    </div>
+      <div class="field">
+        <label for="name">Your Name</label>
+        <input id="name" name="name" type="text" placeholder="What’s your name?" required>
+        <p class="field-hint" aria-live="polite"></p>
+      </div>
 
-    <div class="actions">
-      <button type="submit" class="btn">SEND</button>
-    </div>
-  </form>
+      <div class="field">
+        <label for="email">Your Email</label>
+        <input id="email" name="email" type="email" placeholder="What’s your email?" required>
+        <p class="field-hint" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="What do you want to say?" required></textarea>
+        <p class="field-hint" aria-live="polite"></p>
+      </div>
+
+      <!-- status area -->
+      <div id="contact-status" class="status" role="status" aria-live="polite"></div>
+
+      <div class="actions">
+        <button type="submit" class="btn contact-submit">SEND</button>
+      </div>
+    </form>
+
+    <noscript>
+      <p style="margin-top:12px;color:var(--muted)">
+        JavaScript is disabled. You can email me at
+        <a href="mailto:moneshaq8@gmail.com">moneshaq8@gmail.com</a>.
+      </p>
+    </noscript>
+  </div>
 </section>
 
 </body>
