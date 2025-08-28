@@ -346,9 +346,16 @@ body {
   box-shadow: none;
 }
 #work .chips .chip-active,
+
 #work .chips .chip[aria-selected="true"] {
   background: var(--brand);
   color: #fff;
+}
+
+/* Center align the Work filter bar */
+#work .chips {
+  justify-content: center;   /* centers the chips */
+  margin-top: 10px;          /* space below title */
 }
 
 /* Responsive */
