@@ -133,18 +133,19 @@ body {
   column-gap: 18px;
 }
 @media (max-width: 819px) {
-  .projects-grid {
-    column-count: 1;
-  }
+  .projects-grid { column-count: 1; }
+}
+@media (min-width: 1200px) {
+  .projects-grid { column-count: 3; }  /* optional, nice on big monitors */
 }
 
+/* Cards inside masonry */
 .project-card {
-  display: inline-block;   /* Important for columns */
+  display: inline-block;   /* required for columns */
   width: 100%;
-  break-inside: avoid;     /* Prevent splitting */
+  break-inside: avoid;     /* prevent splitting */
   margin: 0 0 18px;
 }
-
 
 
   
