@@ -34,23 +34,22 @@
     <h2>Search by Skills</h2>
      <!-- Project tag filter -->
     <div class="chips" id="projects-filter" aria-label="Project filters">
-      <button class="chip chip-active" data-filter="all">All</button>
-      <button class="chip" data-filter="Biomedical Engineering">Biomedical Engineering</button>
-      <button class="chip" data-filter="Software Development">Software Development</button>
-      <button class="chip" data-filter="Embedded Systems">Embedded Systems</button>
-      <button class="chip" data-filter="CAD & Modelling">CAD & Modelling</button>
-      <button class="chip" data-filter="Research">Research</button>
-      <button class="chip" data-filter="Clinical Experience">Clinical Experience</button>
-      <button class="chip" data-filter="Wet Lab">Wet Lab</button>
-      <button class="chip" data-filter="Data Science">Data Science</button>
-      <button class="chip" data-filter="Project Management">Project Management</button>
-      <button class="chip" data-filter="Community & Leadership">Community & Leadership</button>
-      <button class="chip" data-filter="Regulatory & Documentation">Regulatory & Documentation</button>
+      <button type="button" class="chip chip-active" data-filter="all">All</button>
+      <button type="button" class="chip" data-filter="Biomedical Engineering">Biomedical Engineering</button>
+      <button type="button" class="chip" data-filter="Software Development">Software Development</button>
+      <button type="button" class="chip" data-filter="Embedded Systems">Embedded Systems</button>
+      <button type="button" class="chip" data-filter="CAD & Modelling">CAD & Modelling</button>
+      <button type="button" class="chip" data-filter="Research">Research</button>
+      <button type="button" class="chip" data-filter="Clinical Experience">Clinical Experience</button>
+      <button type="button" class="chip" data-filter="Wet Lab">Wet Lab</button>
+      <button type="button" class="chip" data-filter="Data Science">Data Science</button>
+      <button type="button" class="chip" data-filter="Project Management">Project Management</button>
+      <button type="button" class="chip" data-filter="Community & Leadership">Community & Leadership</button>
+      <button type="button" class="chip" data-filter="Regulatory & Documentation">Regulatory & Documentation</button>
     </div>
+
   
   <h2>Projects</h2>
-
-
   <!-- Project grid wrapper -->  
     <div class="projects-grid">
 
@@ -223,10 +222,11 @@
 
   <!-- Filter chips  -->
   <div class="chips" role="tablist" aria-label="Experience filters">
-    <button class="chip chip-active" data-filter="all" role="tab" aria-selected="true">All</button>
-    <button class="chip" data-filter="work" role="tab">Work</button>
-    <button class="chip" data-filter="volunteering" role="tab">Volunteering</button>
+    <button type="button" class="chip chip-active" data-filter="all" role="tab" aria-selected="true">All</button>
+    <button type="button" class="chip" data-filter="work" role="tab">Work</button>
+    <button type="button" class="chip" data-filter="volunteering" role="tab">Volunteering</button>
   </div>
+
 
   <div class="work-grid">
     <!-- Mitra -->
@@ -301,44 +301,75 @@
   </div>
 </section>
 
-<!-- Work chip filters -->  
 <script>
-(function workTypeFilter(){
-  const workSection = document.getElementById('work');
-  if (!workSection) return;
+// ----- PROJECTS: filter by skills -----
+(function projectSkillFilter(){
+  const section = document.getElementById('projects');
+  if (!section) return;
 
-  const chipBar = workSection.querySelector('[aria-label="Experience type filters"]');
-  const chips = chipBar ? chipBar.querySelectorAll('.chip') : [];
-  const cards = workSection.querySelectorAll('.work-card');
+  const chipBar = document.getElementById('projects-filter');
+  if (!chipBar) return;
 
-  function apply(type){
+  const chips = chipBar.querySelectorAll('.chip');
+  const cards = section.querySelectorAll('.project-card');
+
+  function cardHasTag(card, wanted){
+    if (wanted === 'all') return true;
+    const raw = (card.dataset.tags || '');
+    const tags = raw.split(',').map(s => s.trim().toLowerCase());
+    return tags.includes(wanted.toLowerCase());
+  }
+
+  function apply(tag){
     cards.forEach(card => {
-      const t = card.dataset.type || 'work';
-      card.style.display = (type === 'all' || t === type) ? '' : 'none';
+      card.style.display = cardHasTag(card, tag) ? '' : 'none'; // '' lets masonry work
     });
   }
 
   // init
   apply('all');
 
-  // click handling
   chips.forEach(btn => {
     btn.addEventListener('click', () => {
-      // visual state
-      chips.forEach(c => { 
-        c.classList.remove('chip-active'); 
-        c.setAttribute('aria-selected','false');
-      });
-      btn.classList.add('chip-active');
-      btn.setAttribute('aria-selected','true');
+      chips.forEach(c => { c.classList.remove('chip-active'); c.setAttribute('aria-selected','false'); });
+      btn.classList.add('chip-active'); btn.setAttribute('aria-selected','true');
+      apply(btn.dataset.filter || 'all');
+    });
+  });
+})();
 
-      // filter
-      const type = btn.dataset.filter || 'all';
-      apply(type);
+// ----- WORK: filter by type (work/volunteering) -----
+(function workTypeFilter(){
+  const workSection = document.getElementById('work');
+  if (!workSection) return;
+
+  const chipBar = workSection.querySelector('[aria-label="Experience filters"]');
+  if (!chipBar) return;
+
+  const chips = chipBar.querySelectorAll('.chip');
+  const cards = workSection.querySelectorAll('.work-card');
+
+  function apply(type){
+    cards.forEach(card => {
+      const t = (card.dataset.type || '').toLowerCase();
+      const show = (type === 'all') || (t === type.toLowerCase());
+      card.style.display = show ? '' : 'none';
+    });
+  }
+
+  // init
+  apply('all');
+
+  chips.forEach(btn => {
+    btn.addEventListener('click', () => {
+      chips.forEach(c => { c.classList.remove('chip-active'); c.setAttribute('aria-selected','false'); });
+      btn.classList.add('chip-active'); btn.setAttribute('aria-selected','true');
+      apply(btn.dataset.filter || 'all');
     });
   });
 })();
 </script>
+
 
   </main>
 
