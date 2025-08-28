@@ -126,33 +126,25 @@ body {
   color: var(--muted);
   margin-top: 8px;
 }
-/* Projects grid */
-.projects-grid {
-  display: grid;
-  grid-template-columns: 1fr;   /* 1 per row on mobile */
-  gap: 18px;
-}
 
-/* 2 per row on wider screens */
-@media (min-width: 820px) {
+/* Masonry layout */
+.projects-grid {
+  column-count: 2;
+  column-gap: 18px;
+}
+@media (max-width: 819px) {
   .projects-grid {
-    grid-template-columns: 1fr 1fr;
+    column-count: 1;
   }
 }
 
-/* Masonry layout -  Basically doesnt have fixed row lines */
-.projects-grid {
-  column-count: 2;          /* 1 on mobile below */
-  column-gap: 18px;
-}
-@media (max-width: 819px) { .projects-grid { column-count: 1; } }
-
 .project-card {
-  display: inline-block;    /* important for columns */
+  display: inline-block;   /* Important for columns */
   width: 100%;
-  break-inside: avoid;      /* prevent card splits */
+  break-inside: avoid;     /* Prevent splitting */
   margin: 0 0 18px;
 }
+
 
 
   
