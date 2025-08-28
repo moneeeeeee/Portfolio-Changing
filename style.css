@@ -230,3 +230,13 @@ body {
   .buttons { gap: 8px; }
   .btn { padding: 9px 12px; }
 }
+
+/* Project card hover effect */
+.project-card {
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
