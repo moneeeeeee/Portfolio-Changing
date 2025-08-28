@@ -32,9 +32,9 @@
   <section id="projects" class="projects section">
 
     <h2>Search by Skills</h2>
-     <!-- Project tag filter -->
-    <div class="chips" id="projects-filter" aria-label="Project filters">
-      <button type="button" class="chip chip-active" data-filter="all">All</button>
+    <!-- Project tag filter -->
+    <div class="chips" id="projects-filter" aria-label="Skill filters">
+      <button type="button" class="chip clear-chip" aria-pressed="false">Clear</button>
       <button type="button" class="chip" data-filter="Biomedical Engineering">Biomedical Engineering</button>
       <button type="button" class="chip" data-filter="Software Development">Software Development</button>
       <button type="button" class="chip" data-filter="Embedded Systems">Embedded Systems</button>
@@ -302,72 +302,80 @@
 </section>
 
 <script>
-// ----- PROJECTS: filter by skills -----
-(function projectSkillFilter(){
-  const section = document.getElementById('projects');
-  if (!section) return;
-
+document.addEventListener('DOMContentLoaded', () => {
   const chipBar = document.getElementById('projects-filter');
   if (!chipBar) return;
 
-  const chips = chipBar.querySelectorAll('.chip');
-  const cards = section.querySelectorAll('.project-card');
+  const chips = Array.from(chipBar.querySelectorAll('.chip')).filter(c => !c.classList.contains('clear-chip'));
+  const clearChip = chipBar.querySelector('.clear-chip');
 
-  function cardHasTag(card, wanted){
-    if (wanted === 'all') return true;
-    const raw = (card.dataset.tags || '');
-    const tags = raw.split(',').map(s => s.trim().toLowerCase());
-    return tags.includes(wanted.toLowerCase());
+  // Collect BOTH projects + experiences
+  const projectCards = Array.from(document.querySelectorAll('.project-card'));
+  const workCards = Array.from(document.querySelectorAll('.work-card'));
+  const allCards = [...projectCards, ...workCards];
+
+  const selected = new Set();
+
+  function parseTags(s) {
+    return (s || '')
+      .toLowerCase()
+      .split(',')
+      .map(t => t.trim())
+      .filter(Boolean);
   }
 
-  function apply(tag){
-    cards.forEach(card => {
-      card.style.display = cardHasTag(card, tag) ? '' : 'none'; // '' lets masonry work
+  function cardHasAllSelected(card, wantedSet) {
+    if (wantedSet.size === 0) return true;
+    const tags = new Set(parseTags(card.dataset.tags));
+    for (const w of wantedSet) {
+      if (!tags.has(w)) return false;
+    }
+    return true;
+  }
+
+  function applyFilters() {
+    allCards.forEach(card => {
+      card.style.display = cardHasAllSelected(card, selected) ? '' : 'none';
     });
   }
 
-  // init
-  apply('all');
-
-  chips.forEach(btn => {
-    btn.addEventListener('click', () => {
-      chips.forEach(c => { c.classList.remove('chip-active'); c.setAttribute('aria-selected','false'); });
-      btn.classList.add('chip-active'); btn.setAttribute('aria-selected','true');
-      apply(btn.dataset.filter || 'all');
+  function resetFilters() {
+    selected.clear();
+    chips.forEach(c => {
+      c.classList.remove('chip-active');
+      c.setAttribute('aria-pressed', 'false');
     });
-  });
-})();
-
-// ----- WORK: filter by type (work/volunteering) -----
-(function workTypeFilter(){
-  const workSection = document.getElementById('work');
-  if (!workSection) return;
-
-  const chipBar = workSection.querySelector('[aria-label="Experience filters"]');
-  if (!chipBar) return;
-
-  const chips = chipBar.querySelectorAll('.chip');
-  const cards = workSection.querySelectorAll('.work-card');
-
-  function apply(type){
-    cards.forEach(card => {
-      const t = (card.dataset.type || '').toLowerCase();
-      const show = (type === 'all') || (t === type.toLowerCase());
-      card.style.display = show ? '' : 'none';
-    });
+    applyFilters();
   }
 
   // init
-  apply('all');
+  resetFilters();
 
+  // Clear button
+  if (clearChip) {
+    clearChip.addEventListener('click', resetFilters);
+  }
+
+  // Each chip toggle
   chips.forEach(btn => {
     btn.addEventListener('click', () => {
-      chips.forEach(c => { c.classList.remove('chip-active'); c.setAttribute('aria-selected','false'); });
-      btn.classList.add('chip-active'); btn.setAttribute('aria-selected','true');
-      apply(btn.dataset.filter || 'all');
+      const tag = (btn.dataset.filter || '').trim().toLowerCase();
+      const currentlyOn = btn.classList.contains('chip-active');
+
+      if (currentlyOn) {
+        btn.classList.remove('chip-active');
+        btn.setAttribute('aria-pressed', 'false');
+        selected.delete(tag);
+      } else {
+        btn.classList.add('chip-active');
+        btn.setAttribute('aria-pressed', 'true');
+        selected.add(tag);
+      }
+
+      applyFilters();
     });
   });
-})();
+});
 </script>
 
 
