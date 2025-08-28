@@ -438,7 +438,16 @@ document.addEventListener('DOMContentLoaded', () => {
   applyAll();
 });
 </script>
-  
+
+<script>
+  function setTopbarHeight() {
+    const h = document.querySelector('.topbar')?.offsetHeight || 56;
+    document.documentElement.style.setProperty('--topbar-h', h + 'px');
+  }
+  window.addEventListener('load', setTopbarHeight);
+  window.addEventListener('resize', setTopbarHeight);
+</script>
+
 </body>
 </html>
 
