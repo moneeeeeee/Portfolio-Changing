@@ -314,81 +314,113 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const chipBar = document.getElementById('projects-filter');
-  if (!chipBar) return;
+  // --------- Collect DOM ---------
+  const skillsBar = document.getElementById('projects-filter');          // skills chips (projects header)
+  const modeInputs = document.querySelectorAll('input[name="filterMode"]'); // AND/OR toggle
+  const workTypeBar = document.getElementById('work-type-filter');       // work type chips
 
-  const chips = Array.from(chipBar.querySelectorAll('.chip')).filter(c => !c.classList.contains('clear-chip'));
-  const clearChip = chipBar.querySelector('.clear-chip');
-
-  // Collect BOTH projects + experiences
   const projectCards = Array.from(document.querySelectorAll('.project-card'));
-  const workCards = Array.from(document.querySelectorAll('.work-card'));
-  const allCards = [...projectCards, ...workCards];
+  const workCards    = Array.from(document.querySelectorAll('.work-card'));
+  const allCards     = [...projectCards, ...workCards];
 
-  const selected = new Set();
+  // --------- State ---------
+  const selectedSkills = new Set();     // active skill tags (lowercase)
+  let skillMode = 'and';                // 'and' | 'or'
+  let workType  = 'all';                // 'all' | 'work' | 'volunteering'
 
-  function parseTags(s) {
-    return (s || '')
-      .toLowerCase()
-      .split(',')
-      .map(t => t.trim())
-      .filter(Boolean);
-  }
+  // --------- Helpers ---------
+  const parseTags = s => (s || '')
+    .toLowerCase()
+    .split(',')
+    .map(t => t.trim())
+    .filter(Boolean);
 
-  function cardHasAllSelected(card, wantedSet) {
-    if (wantedSet.size === 0) return true;
+  function matchSkills(card) {
+    if (selectedSkills.size === 0) return true;
     const tags = new Set(parseTags(card.dataset.tags));
-    for (const w of wantedSet) {
-      if (!tags.has(w)) return false;
+    if (skillMode === 'and') {
+      for (const t of selectedSkills) if (!tags.has(t)) return false;
+      return true;
+    } else {
+      for (const t of selectedSkills) if (tags.has(t)) return true;
+      return false;
     }
-    return true;
   }
 
-  function applyFilters() {
+  function matchWorkType(card) {
+    if (!card.classList.contains('work-card')) return true; // projects ignore work type toggle
+    if (workType === 'all') return true;
+    return (card.dataset.type || '').toLowerCase() === workType;
+  }
+
+  function applyAll() {
     allCards.forEach(card => {
-      card.style.display = cardHasAllSelected(card, selected) ? '' : 'none';
+      const visible = matchSkills(card) && matchWorkType(card);
+      card.style.display = visible ? '' : 'none'; // '' keeps masonry layout happy
     });
   }
 
-  function resetFilters() {
-    selected.clear();
-    chips.forEach(c => {
-      c.classList.remove('chip-active');
-      c.setAttribute('aria-pressed', 'false');
+  // --------- Skills chips (multi-select) ---------
+  if (skillsBar) {
+    const clearBtn = skillsBar.querySelector('.clear-chip'); // optional "Clear" chip
+    const chips = Array.from(skillsBar.querySelectorAll('.chip')).filter(c => !c.classList.contains('clear-chip'));
+
+    function resetSkillsUI() {
+      chips.forEach(c => { c.classList.remove('chip-active'); c.setAttribute('aria-pressed','false'); });
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        selectedSkills.clear();
+        resetSkillsUI();
+        applyAll();
+      });
+    }
+
+    chips.forEach(btn => {
+      btn.setAttribute('aria-pressed','false');
+      btn.addEventListener('click', () => {
+        const tag = (btn.dataset.filter || '').toLowerCase();
+        const on = btn.classList.contains('chip-active');
+        if (on) {
+          btn.classList.remove('chip-active');
+          btn.setAttribute('aria-pressed','false');
+          selectedSkills.delete(tag);
+        } else {
+          btn.classList.add('chip-active');
+          btn.setAttribute('aria-pressed','true');
+          selectedSkills.add(tag);
+        }
+        applyAll();
+      });
     });
-    applyFilters();
   }
 
-  // init
-  resetFilters();
-
-  // Clear button
-  if (clearChip) {
-    clearChip.addEventListener('click', resetFilters);
-  }
-
-  // Each chip toggle
-  chips.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tag = (btn.dataset.filter || '').trim().toLowerCase();
-      const currentlyOn = btn.classList.contains('chip-active');
-
-      if (currentlyOn) {
-        btn.classList.remove('chip-active');
-        btn.setAttribute('aria-pressed', 'false');
-        selected.delete(tag);
-      } else {
-        btn.classList.add('chip-active');
-        btn.setAttribute('aria-pressed', 'true');
-        selected.add(tag);
-      }
-
-      applyFilters();
+  // --------- AND/OR radio toggle ---------
+  modeInputs.forEach(input => {
+    input.addEventListener('change', () => {
+      skillMode = input.value; // 'and' or 'or'
+      applyAll();
     });
   });
+
+  // --------- Work type chips (All / Work / Volunteering) ---------
+  if (workTypeBar) {
+    const typeChips = workTypeBar.querySelectorAll('.chip');
+    typeChips.forEach(btn => {
+      btn.addEventListener('click', () => {
+        typeChips.forEach(c => { c.classList.remove('chip-active'); c.setAttribute('aria-selected','false'); });
+        btn.classList.add('chip-active'); btn.setAttribute('aria-selected','true');
+        workType = (btn.dataset.filter || 'all').toLowerCase();
+        applyAll();
+      });
+    });
+  }
+
+  // Init render
+  applyAll();
 });
 </script>
-
 
   </main>
 
