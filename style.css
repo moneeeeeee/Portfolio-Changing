@@ -425,3 +425,62 @@ body {
   transform: translateY(0); /* Pressed look */
   box-shadow: 0 1px 4px rgba(37, 99, 235, 0.25);
 }
+
+
+/* Contact */
+.contact-section {
+  max-width: 760px;
+  margin: 36px auto 0;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.contact-lead {
+  color: var(--muted);
+  margin: 6px auto 18px;
+  max-width: 640px;
+}
+
+.contact-card {
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: 22px;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+.contact-card .field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.contact-card label {
+  font-weight: 600;
+}
+
+.contact-card input,
+.contact-card textarea {
+  width: 100%;
+  border: 1px solid #e5e7eb;   /* light gray */
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+  background: #fff;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.contact-card input:focus,
+.contact-card textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+}
+
+.contact-card .actions {
+  display: grid;
+  place-items: center;
+  margin-top: 8px;
+}
