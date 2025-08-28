@@ -149,6 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = $$('.nav-link');
   const byHash   = Object.fromEntries(navLinks.map(a => [a.getAttribute('href'), a]));
 
+  // Make sure we start with the correct header height
+  setTopbarHeight();
+  
   // smooth scroll (native CSS also helps if you set scroll-behavior: smooth)
   navLinks.forEach(a => {
     a.addEventListener('click', e => {
@@ -188,6 +191,14 @@ document.addEventListener('DOMContentLoaded', () => {
       .filter(Boolean)
       .forEach(sec => observer.observe(sec));
   }
+
+  makeObserver();
+
+  // Rebuild observer once everything is fully laid out (fonts/images)
+  window.addEventListener('load', () => {
+    setTopbarHeight();
+    makeObserver();
+  });
 
   makeObserver();
   window.addEventListener('resize', () => {
