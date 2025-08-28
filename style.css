@@ -332,6 +332,24 @@ body {
   .chips .chip { padding: 7px 10px; font-size: .9rem; }
 }
 
+/* Segmented control wrapper for Work chips */
+#work .chips {
+  background: #fff;
+  padding: 6px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  gap: 6px;
+}
+#work .chips .chip {
+  background: transparent;
+  color: var(--text);
+  box-shadow: none;
+}
+#work .chips .chip-active,
+#work .chips .chip[aria-selected="true"] {
+  background: var(--brand);
+  color: #fff;
+}
 
 /* Responsive */
 @media (max-width: 640px) {
