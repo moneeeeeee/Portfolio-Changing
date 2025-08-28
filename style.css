@@ -9,6 +9,12 @@
   --radius: 14px;
 }
 
+:root { --topbar-h: 56px; }   /* tweak if your header is taller */
+section,
+.site-header {
+  scroll-margin-top: calc(var(--topbar-h) + 12px);
+}
+
 /* Base */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
