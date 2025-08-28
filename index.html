@@ -232,7 +232,7 @@
   <h2>Experiences</h2>
 
   <!-- Filter chips  -->
-  <div class="chips" role="tablist" aria-label="Experience filters">
+  <div class="chips" id="work-type-filter" role="tablist" aria-label="Experience filters">
     <button type="button" class="chip chip-active" data-filter="all" role="tab" aria-selected="true">All</button>
     <button type="button" class="chip" data-filter="work" role="tab">Work</button>
     <button type="button" class="chip" data-filter="volunteering" role="tab">Volunteering</button>
@@ -336,28 +336,22 @@
       </a>
     </nav>
   </footer>
-   <script>
+
+  <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // --------- Collect DOM ---------
-  const skillsBar = document.getElementById('projects-filter');          // skills chips (projects header)
-  const modeInputs = document.querySelectorAll('input[name="filterMode"]'); // AND/OR toggle
-  const workTypeBar = document.getElementById('work-type-filter');       // work type chips
+  const skillsBar   = document.getElementById('projects-filter');            // skills chips
+  const modeInputs  = document.querySelectorAll('input[name="filterMode"]'); // AND/OR radios
+  const workTypeBar = document.getElementById('work-type-filter');           // work chips
 
   const projectCards = Array.from(document.querySelectorAll('.project-card'));
   const workCards    = Array.from(document.querySelectorAll('.work-card'));
   const allCards     = [...projectCards, ...workCards];
 
-  // --------- State ---------
-  const selectedSkills = new Set();     // active skill tags (lowercase)
-  let skillMode = 'and';                // 'and' | 'or'
-  let workType  = 'all';                // 'all' | 'work' | 'volunteering'
+  const selectedSkills = new Set();
+  let skillMode = 'and';
+  let workType  = 'all';
 
-  // --------- Helpers ---------
-  const parseTags = s => (s || '')
-    .toLowerCase()
-    .split(',')
-    .map(t => t.trim())
-    .filter(Boolean);
+  const parseTags = s => (s || '').toLowerCase().split(',').map(t => t.trim()).filter(Boolean);
 
   function matchSkills(card) {
     if (selectedSkills.size === 0) return true;
@@ -372,21 +366,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function matchWorkType(card) {
-    if (!card.classList.contains('work-card')) return true; // projects ignore work type toggle
+    if (!card.classList.contains('work-card')) return true;
     if (workType === 'all') return true;
     return (card.dataset.type || '').toLowerCase() === workType;
   }
 
   function applyAll() {
     allCards.forEach(card => {
-      const visible = matchSkills(card) && matchWorkType(card);
-      card.style.display = visible ? '' : 'none'; // '' keeps masonry layout happy
+      const show = matchSkills(card) && matchWorkType(card);
+      card.style.display = show ? '' : 'none';
     });
   }
 
-  // --------- Skills chips (multi-select) ---------
+  // Skills chips (multi-select with Clear)
   if (skillsBar) {
-    const clearBtn = skillsBar.querySelector('.clear-chip'); // optional "Clear" chip
+    const clearBtn = skillsBar.querySelector('.clear-chip');
     const chips = Array.from(skillsBar.querySelectorAll('.chip')).filter(c => !c.classList.contains('clear-chip'));
 
     function resetSkillsUI() {
@@ -420,15 +414,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --------- AND/OR radio toggle ---------
+  // AND/OR radios
   modeInputs.forEach(input => {
     input.addEventListener('change', () => {
-      skillMode = input.value; // 'and' or 'or'
+      skillMode = input.value;
       applyAll();
     });
   });
 
-  // --------- Work type chips (All / Work / Volunteering) ---------
+  // Work type chips
   if (workTypeBar) {
     const typeChips = workTypeBar.querySelectorAll('.chip');
     typeChips.forEach(btn => {
@@ -441,7 +435,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Init render
   applyAll();
 });
 </script>
