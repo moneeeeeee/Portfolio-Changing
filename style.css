@@ -484,3 +484,25 @@ body {
 
 /* Honeypot (hidden) */
 .hp { display: none !important; }
+
+/* Section Headings */
+.section h2 {
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 32px 0 20px;
+  position: relative;
+  color: var(--text);
+}
+
+/* Subtle underline separator */
+.section h2::after {
+  content: "";
+  display: block;
+  width: 60px;         /* underline length */
+  height: 3px;         /* thickness */
+  margin: 8px auto 0;  /* centers underline under text */
+  background: var(--brand);
+  border-radius: 2px;
+  opacity: 0.85;
+}
