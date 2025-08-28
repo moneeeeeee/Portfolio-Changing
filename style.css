@@ -332,6 +332,15 @@ body {
   .chips .chip { padding: 7px 10px; font-size: .9rem; }
 }
 
+.filter-mode {
+  margin: 10px 0;
+  display: flex;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.filter-mode input { margin-right: 6px; accent-color: var(--brand); }
+
 /* Segmented control wrapper for Work chips */
 /* Work section chips (match project chips style + center) */
 #work .chips {
