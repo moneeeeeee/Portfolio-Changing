@@ -337,9 +337,37 @@
     </nav>
   </footer>
 
-  <!-- just before </body> -->
+
 <script src="script.js" defer></script>
 
+<!-- CONTACT -->
+<section id="contact" class="section contact-section">
+  <h2>Contact</h2>
+  <p class="contact-lead">
+    What led you here? What are you looking for? I would love to hear from you over a virtual coffee chat!
+  </p>
+
+  <form class="contact-card" name="contact" method="post">
+    <div class="field">
+      <label for="name">Your Name</label>
+      <input id="name" name="name" type="text" placeholder="What's your name?" required>
+    </div>
+
+    <div class="field">
+      <label for="email">Your Email</label>
+      <input id="email" name="email" type="email" placeholder="What's your email?" required>
+    </div>
+
+    <div class="field">
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="6" placeholder="What brings you here?" required></textarea>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn">SEND</button>
+    </div>
+  </form>
+</section>
 
 </body>
 </html>
