@@ -333,30 +333,42 @@ body {
 }
 
 /* Segmented control wrapper for Work chips */
+/* Work section chips (match project chips style + center) */
 #work .chips {
-  background: #fff;
-  padding: 6px;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  gap: 6px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0 22px;
 }
-#work .chips .chip {
-  background: transparent;
-  color: var(--text);
-  box-shadow: none;
-}
-#work .chips .chip-active,
 
+#work .chips .chip {
+  appearance: none;
+  border: 0;
+  background: var(--brand-ghost);
+  color: var(--brand);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
+}
+
+#work .chips .chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(37,99,235,.18);
+}
+
+#work .chips .chip-active,
 #work .chips .chip[aria-selected="true"] {
   background: var(--brand);
   color: #fff;
+  box-shadow: 0 3px 10px rgba(37,99,235,.28);
 }
 
-/* Center align the Work filter bar */
-#work .chips {
-  justify-content: center;   /* centers the chips */
-  margin-top: 10px;          /* space below title */
-}
 
 /* Responsive */
 @media (max-width: 640px) {
