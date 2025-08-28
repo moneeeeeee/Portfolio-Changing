@@ -125,7 +125,7 @@ body {
 .project-card .tech {
   color: var(--muted);
   margin-top: 8px;
-
+}
 /* Projects grid */
 .projects-grid {
   display: grid;
