@@ -28,11 +28,8 @@
   </section>
 
 
-  <main class="container">
-    <section id="projects" class="projects section">
-    <h2>Projects</h2>
-  
-    <section id="projects" class="projects section">
+  <main class="container">  
+  <section id="projects" class="projects section">
   <h2>Projects</h2>
 
   <!-- Project tag filter -->
@@ -51,173 +48,175 @@
       <button class="chip" data-filter="Regulatory & Documentation">Regulatory & Documentation</button>
     </div>
 
-
+  <!-- Project grid wrapper -->  
+    <div class="projects-grid">
 
       <!-- Clean Clash Timer -->
-<article class="project-card" data-tags="Software">
-  <h3>Clean Clash Timer</h3>
-  <p>A chore timer with a leaderboard for that chore.</p>
-  <ul class="tool-badges">
-    <li class="tool-pill">HTML</li>
-    <li class="tool-pill">CSS</li>
-    <li class="tool-pill">JavaScript</li>
-  </ul>
-  <div class="buttons">
-    <a class="btn" href="https://moneeeeeee.github.io/clean-clash/" target="_blank">Live Demo</a>
-    <a class="btn btn-ghost" href="https://github.com/moneeeeeee/clean-clash" target="_blank">Source Code</a>
-  </div>
-</article>
+    <article class="project-card" data-tags="Software">
+      <h3>Clean Clash Timer</h3>
+      <p>A chore timer with a leaderboard for that chore.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">HTML</li>
+        <li class="tool-pill">CSS</li>
+        <li class="tool-pill">JavaScript</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="https://moneeeeeee.github.io/clean-clash/" target="_blank">Live Demo</a>
+        <a class="btn btn-ghost" href="https://github.com/moneeeeeee/clean-clash" target="_blank">Source Code</a>
+      </div>
+    </article>    
 
-<!-- Task Titans -->
-<article class="project-card" data-tags="Software">
-  <h3>Task Titans (in progress)</h3>
-  <p>A full-stack app that gamifies chores with real-time leaderboards, daily summaries, and personal analytics. See the info page for current progress.</p>
-  <ul class="tool-badges">
-    <li class="tool-pill">HTML</li>
-    <li class="tool-pill">CSS</li>
-    <li class="tool-pill">JavaScript</li>
-  </ul>
-  <div class="buttons">
-    <a class="btn" href="https://moneeeeeee.github.io/task-titans/" target="_blank">Project Info</a>
-    <a class="btn btn-ghost" href="https://github.com/moneeeeeee/task-titans" target="_blank">Source Code</a>
-  </div>
-</article>
-
-<!-- Grid Migration Simulator -->
-<article class="project-card" data-tags="Software">
-  <h3>Grid Migration Simulator</h3>
-  <p>Java-based simulation exploring how agents migrate across a grid based on satisfaction, crowding, and fairness.</p>
-  <ul class="tool-badges">
-    <li class="tool-pill">Java</li>
-    <li class="tool-pill">Gradle</li>
-    <li class="tool-pill">JUnit</li>
-  </ul>
-  <div class="buttons">
-    <a class="btn" href="Projects/grid-migration.html" target="_blank">More Info</a>
-  </div>
-</article>
-
-<!-- Cancer Genomics -->
-<article class="project-card" data-tags="Data Research">
-  <h3>Cancer Genomics & Multi-Omics Analysis</h3>
-  <p>Built an R pipeline using TCGA kidney cancer data to align patient cohorts, cluster mutations, run survival analysis, and identify enriched pathways.</p>
-  <ul class="tool-badges">
-    <li class="tool-pill">R</li>
-    <li class="tool-pill">DESeq2</li>
-    <li class="tool-pill">ggplot2</li>
-    <li class="tool-pill">TCGA</li>
-  </ul>
-  <div class="buttons">
-    <a class="btn" href="Projects/cancer-genomics.html" target="_blank">More Info</a>
-  </div>
-</article>
-
-<!-- Single-Cell Aspiration -->
-<article class="project-card" data-tags="Biomedical Embedded">
-  <h3>Automated Single-Cell Aspiration System</h3>
-  <p>Closed-loop Arduino control system for a microfluidic device isolating single cells using negative pressure.</p>
-  <ul class="tool-badges">
-    <li class="tool-pill">Arduino</li>
-    <li class="tool-pill">MATLAB</li>
-    <li class="tool-pill">SolidWorks</li>
-    <li class="tool-pill">Fritzing</li>
-  </ul>
-  <div class="buttons">
-    <a class="btn" href="Projects/single-cell-aspiration.html" target="_blank">More Info</a>
-  </div>
-</article>
-
-<!-- MRI Pump -->
-<article class="project-card" data-tags="Biomedical Embedded CAD">
-  <h3>MRI Compatible Infusion Pump</h3>
-  <p>Non-ferrous infusion pump for MRI environments with 3D-printed parts, stepper actuation, and pressure feedback control.</p>
-  <ul class="tool-badges">
-    <li class="tool-pill">SolidWorks</li>
-    <li class="tool-pill">Arduino</li>
-    <li class="tool-pill">MATLAB</li>
-    <li class="tool-pill">Python</li>
-  </ul>
-  <div class="buttons">
-    <a class="btn" href="Projects/mri-infusion-pump.html" target="_blank">More Info</a>
-  </div>
-</article>
-
-<!-- BMI Survival -->
-<article class="project-card" data-tags="Data Research">
-  <h3>BMI-Stratified Survival Analysis</h3>
-  <p>Analyzed TCGA clinical data to compare survival outcomes across BMI categories using Kaplan–Meier models.</p>
-  <ul class="tool-badges">
-    <li class="tool-pill">R</</li>
-    <li class="tool-pill">Survival Analysis</li>
-    <li class="tool-pill">TCGA</li>
-  </ul>
-  <div class="buttons">
-    <a class="btn" href="Projects/bmi-survival.html" target="_blank">More Info</a>
-  </div>
-</article>
-
-<!-- scRNA-seq -->
-<article class="project-card" data-tags="Data Research">
-  <h3>Single-Cell RNA-Seq Pipeline</h3>
-  <p>Implemented alignment, quality control, and visualization workflows for scRNA-seq data including custom alignment algorithms.</p>
-  <ul class="tool-badges">
-    <li class="tool-pill">R</li>
-    <li class="tool-pill">SAM Parsing</li>
-    <li class="tool-pill">Custom Algorithms</li>
-  </ul>
-  <div class="buttons">
-    <a class="btn" href="Projects/scrna-seq-pipeline.html" target="_blank">More Info</a>
-  </div>
-</article>
-
-<!-- EEG -->
-<article class="project-card" data-tags="Biomedical Research">
-  <h3>EEG Signal Acquisition & BCI Analysis</h3>
-  <p>Calibrated a 14-channel EEG system, analyzed brainwave bands, removed artifacts, and trained BCI models for neurofeedback.</p>
-  <ul class="tool-badges">
-    <li class="tool-pill">EEG</li>
-    <li class="tool-pill">Signal Processing</li>
-    <li class="tool-pill">BCI Software</li>
-  </ul>
-  <div class="buttons">
-    <a class="btn" href="Projects/eeg-bci.html" target="_blank">More Info</a>
-  </div>
-</article>
-
-<!-- Spinal Cord Scaffold -->
-<article class="project-card" data-tags="Biomedical Docs">
-  <h3>Spinal Cord Scaffold – CNT-MSC Implant</h3>
-  <p>Proposed a fibrin scaffold with CNTs and stem cells for spinal cord regeneration, addressing biocompatibility and regulatory pathways.</p>
-  <ul class="tool-badges">
-    <li class="tool-pill">Literature Review</li>
-    <li class="tool-pill">ISO Standards</li>
-    <li class="tool-pill">Cost Modeling</li>
-  </ul>
-  <div class="buttons">
-    <a class="btn" href="Projects/spinal-cord-scaffold.html" target="_blank">More Info</a>
-  </div>
-</article>
-
-<!-- Weighted Squat Jumps -->
-<article class="project-card" data-tags="Biomedical CAD">
-  <h3>Weighted Squat Jumps Aiding Device</h3>
-  <p>Prototyped a device to standardize weighted squat jumps for training and rehab, with optional sensing and data logging.</p>
-  <ul class="tool-badges">
-    <li class="tool-pill">SolidWorks</li>
-    <li class="tool-pill">3D Printing</li>
-    <li class="tool-pill">Microcontrollers</li>
-  </ul>
-  <div class="buttons">
-    <a class="btn" href="Projects/weighted-squat-jumps.html" target="_blank">More Info</a>
-  </div>
-</article>
-
-
-
-    </section>
+    <!-- Task Titans -->
+    <article class="project-card" data-tags="Software">
+      <h3>Task Titans (in progress)</h3>
+      <p>A full-stack app that gamifies chores with real-time leaderboards, daily summaries, and personal analytics. See the info page for current progress.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">HTML</li>
+        <li class="tool-pill">CSS</li>
+        <li class="tool-pill">JavaScript</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="https://moneeeeeee.github.io/task-titans/" target="_blank">Project Info</a>
+        <a class="btn btn-ghost" href="https://github.com/moneeeeeee/task-titans" target="_blank">Source Code</a>
+      </div>
+    </article>
     
-    <!-- WORK-->
-    <section id="work" class="section">
+    <!-- Grid Migration Simulator -->
+    <article class="project-card" data-tags="Software">
+      <h3>Grid Migration Simulator</h3>
+      <p>Java-based simulation exploring how agents migrate across a grid based on satisfaction, crowding, and fairness.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">Java</li>
+        <li class="tool-pill">Gradle</li>
+        <li class="tool-pill">JUnit</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/grid-migration.html" target="_blank">More Info</a>
+      </div>
+    </article>
+    
+    <!-- Cancer Genomics -->
+    <article class="project-card" data-tags="Data Research">
+      <h3>Cancer Genomics & Multi-Omics Analysis</h3>
+      <p>Built an R pipeline using TCGA kidney cancer data to align patient cohorts, cluster mutations, run survival analysis, and identify enriched pathways.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">R</li>
+        <li class="tool-pill">DESeq2</li>
+        <li class="tool-pill">ggplot2</li>
+        <li class="tool-pill">TCGA</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/cancer-genomics.html" target="_blank">More Info</a>
+      </div>
+    </article>
+    
+    <!-- Single-Cell Aspiration -->
+    <article class="project-card" data-tags="Biomedical Embedded">
+      <h3>Automated Single-Cell Aspiration System</h3>
+      <p>Closed-loop Arduino control system for a microfluidic device isolating single cells using negative pressure.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">Arduino</li>
+        <li class="tool-pill">MATLAB</li>
+        <li class="tool-pill">SolidWorks</li>
+        <li class="tool-pill">Fritzing</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/single-cell-aspiration.html" target="_blank">More Info</a>
+      </div>
+    </article>
+    
+    <!-- MRI Pump -->
+    <article class="project-card" data-tags="Biomedical Embedded CAD">
+      <h3>MRI Compatible Infusion Pump</h3>
+      <p>Non-ferrous infusion pump for MRI environments with 3D-printed parts, stepper actuation, and pressure feedback control.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">SolidWorks</li>
+        <li class="tool-pill">Arduino</li>
+        <li class="tool-pill">MATLAB</li>
+        <li class="tool-pill">Python</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/mri-infusion-pump.html" target="_blank">More Info</a>
+      </div>
+    </article>
+    
+    <!-- BMI Survival -->
+    <article class="project-card" data-tags="Data Research">
+      <h3>BMI-Stratified Survival Analysis</h3>
+      <p>Analyzed TCGA clinical data to compare survival outcomes across BMI categories using Kaplan–Meier models.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">R</</li>
+        <li class="tool-pill">Survival Analysis</li>
+        <li class="tool-pill">TCGA</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/bmi-survival.html" target="_blank">More Info</a>
+      </div>
+    </article>
+    
+    <!-- scRNA-seq -->
+    <article class="project-card" data-tags="Data Research">
+      <h3>Single-Cell RNA-Seq Pipeline</h3>
+      <p>Implemented alignment, quality control, and visualization workflows for scRNA-seq data including custom alignment algorithms.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">R</li>
+        <li class="tool-pill">SAM Parsing</li>
+        <li class="tool-pill">Custom Algorithms</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/scrna-seq-pipeline.html" target="_blank">More Info</a>
+      </div>
+    </article>
+    
+    <!-- EEG -->
+    <article class="project-card" data-tags="Biomedical Research">
+      <h3>EEG Signal Acquisition & BCI Analysis</h3>
+      <p>Calibrated a 14-channel EEG system, analyzed brainwave bands, removed artifacts, and trained BCI models for neurofeedback.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">EEG</li>
+        <li class="tool-pill">Signal Processing</li>
+        <li class="tool-pill">BCI Software</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/eeg-bci.html" target="_blank">More Info</a>
+      </div>
+    </article>
+    
+    <!-- Spinal Cord Scaffold -->
+    <article class="project-card" data-tags="Biomedical Docs">
+      <h3>Spinal Cord Scaffold – CNT-MSC Implant</h3>
+      <p>Proposed a fibrin scaffold with CNTs and stem cells for spinal cord regeneration, addressing biocompatibility and regulatory pathways.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">Literature Review</li>
+        <li class="tool-pill">ISO Standards</li>
+        <li class="tool-pill">Cost Modeling</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/spinal-cord-scaffold.html" target="_blank">More Info</a>
+      </div>
+    </article>
+    
+    <!-- Weighted Squat Jumps -->
+    <article class="project-card" data-tags="Biomedical CAD">
+      <h3>Weighted Squat Jumps Aiding Device</h3>
+      <p>Prototyped a device to standardize weighted squat jumps for training and rehab, with optional sensing and data logging.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">SolidWorks</li>
+        <li class="tool-pill">3D Printing</li>
+        <li class="tool-pill">Microcontrollers</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/weighted-squat-jumps.html" target="_blank">More Info</a>
+      </div>
+    </article>
+
+    </div>
+    </section>
+
+    
+  <!-- WORK-->
+    
+  <section id="work" class="section">
   <h2>Experience</h2>
 
   <!-- Filter chips -->
