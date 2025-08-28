@@ -149,10 +149,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = $$('.nav-link');
   const byHash   = Object.fromEntries(navLinks.map(a => [a.getAttribute('href'), a]));
 
-  // Make sure we start with the correct header height
+    // Make sure we start with the correct header height
   setTopbarHeight();
-  
-  // smooth scroll (native CSS also helps if you set scroll-behavior: smooth)
+
+  // smooth scroll
   navLinks.forEach(a => {
     a.addEventListener('click', e => {
       const href = a.getAttribute('href');
@@ -163,10 +163,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // IntersectionObserver is more reliable than offsetTop
-  const topbarOffset = () => (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--topbar-h')) || 56);
-  let observer;
+  // IntersectionObserver for active nav
+  const topbarOffset = () =>
+    parseInt(getComputedStyle(document.documentElement).getPropertyValue('--topbar-h')) || 56;
 
+  let observer;
   function makeObserver() {
     if (observer) observer.disconnect();
     observer = new IntersectionObserver((entries) => {
@@ -175,13 +176,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const link = byHash[id];
         if (!link) return;
         if (entry.isIntersecting) {
-          // clear all first
           navLinks.forEach(n => n.classList.remove('active'));
           link.classList.add('active');
         }
       });
     }, {
-      // trigger when section top crosses below sticky header
       rootMargin: `-${topbarOffset() + 8}px 0px -70% 0px`,
       threshold: 0
     });
@@ -192,17 +191,17 @@ document.addEventListener('DOMContentLoaded', () => {
       .forEach(sec => observer.observe(sec));
   }
 
+  // initial
   makeObserver();
 
-  // Rebuild observer once everything is fully laid out (fonts/images)
+  // Rebuild once everything is fully laid out
   window.addEventListener('load', () => {
     setTopbarHeight();
     makeObserver();
   });
 
-  makeObserver();
+  // Rebuild on resize (e.g., orientation/font changes)
   window.addEventListener('resize', () => {
     setTopbarHeight();
     makeObserver();
   });
-});
