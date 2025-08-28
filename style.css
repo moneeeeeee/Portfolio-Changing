@@ -127,6 +127,26 @@ body {
   margin-top: 8px;
 }
 
+/* Tool badges */
+.tool-badges {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tool-pill {
+  background: var(--brand-ghost);
+  color: var(--brand);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+
 /* Buttons */
 .buttons {
   margin-top: 14px;
