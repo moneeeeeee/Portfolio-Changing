@@ -140,12 +140,20 @@ body {
   }
 }
 
-/* Optional: make cards full height in each grid cell */
-.project-card {
-  display: flex;
-  flex-direction: column;
+/* Masonry layout -  Basically doesnt have fixed row lines */
+.projects-grid {
+  column-count: 2;          /* 1 on mobile below */
+  column-gap: 18px;
 }
-.project-card .buttons { margin-top: auto; }
+@media (max-width: 819px) { .projects-grid { column-count: 1; } }
+
+.project-card {
+  display: inline-block;    /* important for columns */
+  width: 100%;
+  break-inside: avoid;      /* prevent card splits */
+  margin: 0 0 18px;
+}
+
 
   
 /* Tool badges */
