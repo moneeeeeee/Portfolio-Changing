@@ -97,8 +97,6 @@ body {
 .hero h1 { margin: 8px 0; }
 .hero .subtitle { color: var(--muted); }
 
-/* Sections */
-.section { margin-top: 36px; }
 /* Section Headings */
 .section h2 {
   text-align: center;
