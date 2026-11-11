@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EHR Patient Selection for a Diabetes Drug Trial – Project Details</title>
+  <meta name="description" content="A TensorFlow regression model with uncertainty estimates and a bias audit, used to select patients for a hypothetical Phase III trial." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">EHR Patient Selection for a Diabetes Drug Trial</h1>
+      <p class="subtitle">Individual project | Python, TensorFlow, TF Probability, Aequitas, SHAP</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="project-details">
+      <h2>Overview</h2>
+      <p>A TensorFlow regression model with uncertainty estimates and a bias audit, used to select patients for a hypothetical Phase III trial.</p>
+      <p>A hypothetical diabetes drug needs patients to stay in hospital for 5 to 7 days for administration and monitoring. The task was to predict length of stay from electronic health records and identify patients likely to fit that window, without leaking data or hiding uncertainty.</p>
+
+      <h2>Tools</h2>
+      <ul class="tool-badges">
+        <li class="tool-pill">Python</li>
+        <li class="tool-pill">TensorFlow</li>
+        <li class="tool-pill">TensorFlow Probability</li>
+        <li class="tool-pill">pandas</li>
+        <li class="tool-pill">Aequitas</li>
+        <li class="tool-pill">SHAP</li>
+      </ul>
+
+      <h2>Role</h2>
+      <p>Individual project. Udacity AI in Healthcare Nanodegree (June – Aug 2026).</p>
+
+      <h2>Description</h2>
+      <ul>
+        <li>Transformed raw records from the UCI Diabetes 130-US Hospitals dataset into encounter-level features.</li>
+        <li>Grouped medical codes and handled missing and high-cardinality fields.</li>
+        <li>Split the data by patient into training, validation and test sets to prevent leakage.</li>
+        <li>Trained a regression model for length of stay and converted predictions into include or exclude decisions.</li>
+        <li>Added uncertainty estimates with TensorFlow Probability, so each prediction carries a confidence range.</li>
+        <li>Audited the model for demographic bias with Aequitas and examined feature contributions with SHAP.</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>The project showed me that in healthcare a prediction without an uncertainty estimate and a fairness check is incomplete. It also introduced practical issues around clinical coding systems and privacy in health data.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Monesha Basker</p>
+  </footer>
+</body>
+</html>

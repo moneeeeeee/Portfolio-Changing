@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HippoVolume.AI: Hippocampal Volume from Brain MRI – Project Details</title>
+  <meta name="description" content="A PyTorch U-Net (Dice 0.90) wired into a simulated hospital PACS, so each incoming MRI study returns an automated volume report." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">HippoVolume.AI: Hippocampal Volume from Brain MRI</h1>
+      <p class="subtitle">Individual project | Python, PyTorch, U-Net, DICOM, Orthanc PACS</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="project-details">
+      <h2>Overview</h2>
+      <p>A PyTorch U-Net (Dice 0.90) wired into a simulated hospital PACS, so each incoming MRI study returns an automated volume report.</p>
+      <p>Hippocampal volume is a marker tracked in Alzheimer&#x27;s progression, but measuring it by hand means tracing the structure on every slice. The goal was a system that measures it automatically and fits into the tools radiologists already use.</p>
+      <div class="buttons">
+        <a class="btn" href="https://github.com/moneeeeeee/hippovolume-ai" target="_blank" rel="noopener">Source code</a>
+      </div>
+
+      <h2>Key Numbers</h2>
+      <div class="stats">
+        <div class="stat"><span class="num">0.90</span><span class="lbl">mean Dice (held-out test)</span></div>
+        <div class="stat"><span class="num">0.82</span><span class="lbl">Jaccard</span></div>
+        <div class="stat"><span class="num">0.91 / 0.998</span><span class="lbl">sensitivity / specificity</span></div>
+        <div class="stat"><span class="num">260</span><span class="lbl">curated MRI volumes</span></div>
+      </div>
+
+      <h2>Tools</h2>
+      <ul class="tool-badges">
+        <li class="tool-pill">Python</li>
+        <li class="tool-pill">PyTorch</li>
+        <li class="tool-pill">U-Net</li>
+        <li class="tool-pill">NiBabel</li>
+        <li class="tool-pill">pydicom</li>
+        <li class="tool-pill">Orthanc PACS</li>
+        <li class="tool-pill">OHIF</li>
+        <li class="tool-pill">TensorBoard</li>
+      </ul>
+
+      <h2>Role</h2>
+      <p>Individual project. Udacity AI in Healthcare Nanodegree (June – Aug 2026).</p>
+
+      <figure class="figure"><img src="../assets/hippovolume-report.png" alt="The generated DICOM report displayed in the OHIF viewer, with anterior, posterior and total volumes and three overlay slices. The study shown is public test data." loading="lazy" /><figcaption>The generated DICOM report displayed in the OHIF viewer, with anterior, posterior and total volumes and three overlay slices. The study shown is public test data.</figcaption></figure>
+
+      <h2>Description</h2>
+      <ul>
+        <li>Screened 262 volumes from the Medical Segmentation Decathlon and removed 2 invalid studies, one with a labelled volume about 12 times the normal range and one whose image and mask dimensions did not match.</li>
+        <li>Trained a U-Net to segment background, anterior hippocampus and posterior hippocampus, monitoring training and validation loss in TensorBoard.</li>
+        <li>Evaluated on an independent test set with Dice, Jaccard, sensitivity and specificity.</li>
+        <li>Built an inference service that receives a study from an Orthanc PACS, selects the right series, segments it and computes volumes from voxel spacing.</li>
+        <li>Generated a DICOM report with the measurements and overlay slices and sent it back to the archive for viewing in OHIF.</li>
+        <li>Wrote a validation plan covering intended use, ground truth, performance measurement and the conditions under which accuracy is expected to fall.</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>The pipeline works end to end on test studies. These results are algorithmic validation on one dataset, not clinical validation, and the tool is intended to assist a radiologist, who reviews every measurement. The integration step taught me the most: a model only becomes useful once it fits the system clinicians already work in.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Monesha Basker</p>
+  </footer>
+</body>
+</html>

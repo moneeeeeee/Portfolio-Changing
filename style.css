@@ -504,3 +504,114 @@ body {
 .hp { display: none !important; }
 
 
+
+/* About blurb under the name */
+.about-blurb {
+  margin: 10px 0 0;
+  max-width: 62ch;
+  color: var(--muted);
+}
+
+/* Experience role sits on its own line */
+.work-head .role { margin-top: 2px; }
+.work-card {
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.work-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+.work-points a { color: var(--brand); font-weight: 600; }
+
+/* Publications card */
+.info-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 20px;
+}
+.pubs { margin: 0; padding-left: 18px; color: var(--muted); }
+.pubs li + li { margin-top: 10px; }
+.pubs strong { color: var(--text); }
+.pubs a { color: var(--brand); font-weight: 600; }
+
+/* ---------- Project detail pages ---------- */
+.back-btn {
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: transform 0.12s ease, box-shadow 0.2s ease;
+}
+.back-btn:hover {
+  transform: translateX(-3px);
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.35);
+}
+
+.project-details {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 8px 24px 24px;
+  margin-top: 16px;
+}
+.project-details h2 {
+  font-size: 1.3rem;
+  margin: 26px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid var(--brand-ghost);
+}
+.project-details li { margin-bottom: 6px; }
+.project-details .tool-badges { margin-top: 0; }
+.project-details .tool-badges li { margin-bottom: 0; }
+
+/* Key number tiles */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+.stat {
+  background: var(--brand-ghost);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  transition: transform 0.15s ease;
+}
+.stat:hover { transform: translateY(-2px); }
+.stat .num {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--brand);
+}
+.stat .lbl {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* Figures, diagrams and tables */
+.figure { margin: 20px 0; }
+.figure img, .figure svg {
+  display: block;
+  max-width: 100%;
+  border-radius: 10px;
+}
+.figure figcaption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.flow rect { fill: var(--brand-ghost); stroke: var(--brand); stroke-width: 1.2; }
+.flow text { font-family: inherit; font-size: 13px; font-weight: 600; fill: var(--text); text-anchor: middle; }
+.flow .arrow { stroke: var(--brand); stroke-width: 2; fill: none; }
+
+.table-wrap { overflow-x: auto; }
+.project-details table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+.project-details th,
+.project-details td { text-align: left; padding: 9px 12px; border-bottom: 1px solid #e5e7eb; }
+.project-details th { color: var(--muted); font-size: 0.85rem; }
+
+@media (max-width: 640px) {
+  .project-details { padding: 4px 16px 18px; }
+}

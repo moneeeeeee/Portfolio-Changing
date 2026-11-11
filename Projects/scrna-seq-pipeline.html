@@ -3,38 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Single-Cell RNA-Seq Alignment & QC Pipeline – Project Details</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Sequence Alignment &amp; RNA-seq Read Quality – Project Details</title>
+  <meta name="description" content="Implemented pairwise alignment by dynamic programming in R, then parsed SAM files from single-cell RNA-seq data to compute quality metrics." />
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a href="../index.html" class="back-link">← Back to Portfolio</a>
-    <h1>Single-Cell RNA-Seq Data Analysis and Alignment Pipeline</h1>
-    <p class="subtitle">Bioinformatics Analyst | R, SAM parsing, custom algorithms</p>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+    </nav>
   </header>
+
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">Sequence Alignment &amp; RNA-seq Read Quality</h1>
+      <p class="subtitle">Individual assignment | R, SAM Parsing, Custom Algorithms</p>
+    </div>
+  </section>
 
   <main class="container">
     <section class="project-details">
       <h2>Overview</h2>
-      <p>I implemented a scRNA-seq pipeline with sequence alignment concepts, SAM file parsing, and QC metrics to study mapping quality and coverage.</p>
+      <p>Implemented pairwise alignment by dynamic programming in R, then parsed SAM files from single-cell RNA-seq data to compute quality metrics.</p>
+      <p>Aligners and their output files are usually treated as black boxes. This assignment opens them: implement the alignment algorithm, then read real alignment files and measure their quality.</p>
 
       <h2>Tools</h2>
-      <ul>
-        <li>R for parsing and analysis</li>
-        <li>Custom alignment scoring and traceback simulation</li>
-        <li>ASCII conversion for Phred scores and QC summaries</li>
+      <ul class="tool-badges">
+        <li class="tool-pill">R</li>
+        <li class="tool-pill">SAM format</li>
+        <li class="tool-pill">dynamic programming</li>
       </ul>
 
       <h2>Role</h2>
-      <p>Bioinformatics Analyst</p>
+      <p>Individual assignment. UBC bioinformatics course.</p>
 
       <h2>Description</h2>
-      <p>I simulated pairwise alignment with gap and mismatch penalties, then parsed SAM headers and reads to extract metadata, mapping counts, and mean base quality. I profiled chromosome-specific mappings and examined low-quality regions. I produced boxplots for Phred distributions and flagged reads below thresholds. The work strengthened my understanding of aligners, data formats, and quality control in single-cell workflows.</p>
+      <ul>
+        <li>Implemented pairwise sequence alignment with custom scoring matrices, gap penalties and mismatch scores, and verified results by tracing the traceback by hand.</li>
+        <li>Parsed SAM headers and reads to extract metadata, total aligned reads and per-chromosome mappings.</li>
+        <li>Converted ASCII base-quality strings to Phred scores and computed mean base quality by chromosome.</li>
+        <li>Filtered to genomic subregions, flagged reads below quality thresholds and plotted score distributions as boxplots.</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>The work gave me a concrete understanding of alignment algorithms, sequencing file formats and quality control, and of how coverage bias can affect biological conclusions.</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2025 Monesha Basker</p>
+    <p>© 2026 Monesha Basker</p>
   </footer>
 </body>
 </html>

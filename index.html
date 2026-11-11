@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Monesha Basker – Portfolio</title>
-  <meta name="description" content="Portfolio of Monesha Basker: Software/Firmware Developer and Biomedical Engineering student." />
+  <meta name="description" content="Portfolio of Monesha Basker: software, data science, machine learning and embedded systems projects." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -23,12 +23,13 @@
   <div class="avatar" aria-hidden="true">MB</div>
   <div>
     <h1 class="title">Monesha Basker</h1>
-    <p class="subtitle">Software • Firmware • Biomedical Engineering</p>
+    <p class="subtitle">Software • Data Science • Embedded Systems</p>
+    <p class="about-blurb">I build software and devices that turn complex data into something people can use: analytics tools, machine learning pipelines for imaging and wearable signals, and embedded control systems. UBC Engineering, graduating May 2027.</p>
   </div>
   </section>
 
 
-  <main class="container">  
+  <main class="container">
   <section id="projects" class="projects section">
 
     <h2>Search by Skills</h2>
@@ -45,59 +46,190 @@
   </div>
     <!-- Project tag filter -->
     <div class="chips" id="projects-filter" aria-label="Skill filters">
-      <button type="button" class="chip" data-filter="Biomedical Engineering">Biomedical Engineering</button>
       <button type="button" class="chip" data-filter="Software Development">Software Development</button>
+      <button type="button" class="chip" data-filter="Data Science">Data Science</button>
+      <button type="button" class="chip" data-filter="Machine Learning">Machine Learning</button>
+      <button type="button" class="chip" data-filter="Biomedical Engineering">Biomedical Engineering</button>
       <button type="button" class="chip" data-filter="Embedded Systems">Embedded Systems</button>
-      <button type="button" class="chip" data-filter="CAD & Modelling">CAD & Modelling</button>
+      <button type="button" class="chip" data-filter="CAD &amp; Modelling">CAD &amp; Modelling</button>
       <button type="button" class="chip" data-filter="Research">Research</button>
       <button type="button" class="chip" data-filter="Clinical Experience">Clinical Experience</button>
       <button type="button" class="chip" data-filter="Wet Lab">Wet Lab</button>
-      <button type="button" class="chip" data-filter="Data Science">Data Science</button>
       <button type="button" class="chip" data-filter="Project Management">Project Management</button>
-      <button type="button" class="chip" data-filter="Community & Leadership">Community & Leadership</button>
-      <button type="button" class="chip" data-filter="Regulatory & Documentation">Regulatory & Documentation</button>
+      <button type="button" class="chip" data-filter="Community &amp; Leadership">Community &amp; Leadership</button>
+      <button type="button" class="chip" data-filter="Regulatory &amp; Documentation">Regulatory &amp; Documentation</button>
       <button type="button" class="chip clear-chip" aria-pressed="false">Clear</button>
     </div>
 
-  
+
   <h2>Projects</h2>
-  <!-- Project grid wrapper -->  
+  <!-- Project grid wrapper -->
     <div class="projects-grid">
 
-      <!-- Clean Clash Timer -->
-    <article class="project-card" data-tags="Software Development">
-      <h3>Clean Clash Timer</h3>
-      <p>A chore timer with a leaderboard for that chore.</p>
+    <!-- Clinical Analytics Dashboard -->
+    <article class="project-card" data-tags="Software Development, Data Science, Biomedical Engineering">
+      <h3>Clinical Analytics Dashboard</h3>
+      <p>An R Shiny dashboard, used by 35+ staff, that traces a tumour variant through evidence, interpreted action, treatment and response.</p>
       <ul class="tool-badges">
-        <li class="tool-pill">HTML</li>
-        <li class="tool-pill">CSS</li>
-        <li class="tool-pill">JavaScript</li>
+        <li class="tool-pill">R</li>
+        <li class="tool-pill">Shiny</li>
+        <li class="tool-pill">tidyverse</li>
+        <li class="tool-pill">ggplot2</li>
       </ul>
       <div class="buttons">
-        <a class="btn" href="https://moneeeeeee.github.io/clean-clash/" target="_blank">Live Demo</a>
-        <a class="btn btn-ghost" href="https://github.com/moneeeeeee/clean-clash" target="_blank">Source Code</a>
-      </div>
-    </article>    
-
-    <!-- Task Titans -->
-    <article class="project-card" data-tags="Software Development, Project Management, Data Science">
-      <h3>Task Titans (in progress)</h3>
-      <p>A full-stack app that gamifies chores with real-time leaderboards, daily summaries, and personal analytics. See the info page for current progress.</p>
-      <ul class="tool-badges">
-        <li class="tool-pill">HTML</li>
-        <li class="tool-pill">CSS</li>
-        <li class="tool-pill">JavaScript</li>
-      </ul>
-      <div class="buttons">
-        <a class="btn" href="https://moneeeeeee.github.io/task-titans/" target="_blank">Project Info</a>
-        <a class="btn btn-ghost" href="https://github.com/moneeeeeee/task-titans" target="_blank">Source Code</a>
+        <a class="btn" href="Projects/gsc-dashboard.html" target="_blank">More Info</a>
       </div>
     </article>
-    
+
+    <!-- AI-Assisted Literature Curation -->
+    <article class="project-card" data-tags="Machine Learning, Data Science, Research, Regulatory &amp; Documentation">
+      <h3>AI-Assisted Literature Curation</h3>
+      <p>Compared 4 LLM tools for drafting cancer-variant evidence statements and wrote the team&#x27;s human-in-the-loop workflow and master prompt.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">LLMs</li>
+        <li class="tool-pill">Prompt Design</li>
+        <li class="tool-pill">CIViC</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/gsc-ai-curation.html" target="_blank">More Info</a>
+      </div>
+    </article>
+
+    <!-- HippoVolume.AI: Hippocampal Volume from Brain MRI -->
+    <article class="project-card" data-tags="Machine Learning, Software Development, Data Science, Biomedical Engineering, Regulatory &amp; Documentation">
+      <h3>HippoVolume.AI: Hippocampal Volume from Brain MRI</h3>
+      <p>A PyTorch U-Net (Dice 0.90) wired into a simulated hospital PACS, so each incoming MRI study returns an automated volume report.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">Python</li>
+        <li class="tool-pill">PyTorch</li>
+        <li class="tool-pill">U-Net</li>
+        <li class="tool-pill">DICOM</li>
+        <li class="tool-pill">Orthanc PACS</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/hippovolume.html" target="_blank">More Info</a>
+        <a class="btn btn-ghost" href="https://github.com/moneeeeeee/hippovolume-ai" target="_blank" rel="noopener">Source code</a>
+      </div>
+    </article>
+
+    <!-- Motion-Compensated Pulse Rate Estimation -->
+    <article class="project-card" data-tags="Data Science, Software Development, Biomedical Engineering">
+      <h3>Motion-Compensated Pulse Rate Estimation</h3>
+      <p>A signal-processing algorithm that estimates pulse rate from a wrist wearable during exercise to within 1.13 BPM on a held-out test.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">Python</li>
+        <li class="tool-pill">SciPy</li>
+        <li class="tool-pill">FFT</li>
+        <li class="tool-pill">PPG</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/pulse-rate.html" target="_blank">More Info</a>
+        <a class="btn btn-ghost" href="https://github.com/moneeeeeee/pulse-rate-estimation" target="_blank" rel="noopener">Source code</a>
+      </div>
+    </article>
+
+    <!-- PneumoDetect: Pneumonia Detection from Chest X-rays -->
+    <article class="project-card" data-tags="Machine Learning, Data Science, Biomedical Engineering, Regulatory &amp; Documentation">
+      <h3>PneumoDetect: Pneumonia Detection from Chest X-rays</h3>
+      <p>A VGG16 classifier with DICOM input checks and an FDA-style submission. A study in honest evaluation: it is not clinically ready, and the write-up explains why.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">Python</li>
+        <li class="tool-pill">TensorFlow/Keras</li>
+        <li class="tool-pill">VGG16</li>
+        <li class="tool-pill">pydicom</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/pneumodetect.html" target="_blank">More Info</a>
+        <a class="btn btn-ghost" href="https://github.com/moneeeeeee/pneumodetect" target="_blank" rel="noopener">Source code</a>
+      </div>
+    </article>
+
+    <!-- EHR Patient Selection for a Diabetes Drug Trial -->
+    <article class="project-card" data-tags="Machine Learning, Data Science, Biomedical Engineering">
+      <h3>EHR Patient Selection for a Diabetes Drug Trial</h3>
+      <p>A TensorFlow regression model with uncertainty estimates and a bias audit, used to select patients for a hypothetical Phase III trial.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">Python</li>
+        <li class="tool-pill">TensorFlow</li>
+        <li class="tool-pill">TF Probability</li>
+        <li class="tool-pill">Aequitas</li>
+        <li class="tool-pill">SHAP</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/ehr-patient-selection.html" target="_blank">More Info</a>
+      </div>
+    </article>
+
+    <!-- Cancer Variant Evidence Curation -->
+    <article class="project-card" data-tags="Research, Data Science, Biomedical Engineering, Regulatory &amp; Documentation">
+      <h3>Cancer Variant Evidence Curation</h3>
+      <p>Curated 131 evidence statements into the public CIViC knowledgebase and co-authored the CIViC 2026 paper in Nucleic Acids Research.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">CIViC</li>
+        <li class="tool-pill">GraphKB</li>
+        <li class="tool-pill">Clinical Trials</li>
+        <li class="tool-pill">FDA Records</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/gsc-curation.html" target="_blank">More Info</a>
+        <a class="btn btn-ghost" href="https://civicdb.org" target="_blank" rel="noopener">CIViC knowledgebase</a>
+        <a class="btn btn-ghost" href="https://doi.org/10.1093/nar/gkag1156" target="_blank" rel="noopener">CIViC 2026 paper</a>
+      </div>
+    </article>
+
+    <!-- Metastatic Breast Cancer Cohort Study -->
+    <article class="project-card" data-tags="Research, Data Science, Biomedical Engineering">
+      <h3>Metastatic Breast Cancer Cohort Study</h3>
+      <p>Co-author of an ASCO 2026 abstract on real-world outcomes and tumour gene expression in 43 patients treated with antibody-drug conjugates.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">R</li>
+        <li class="tool-pill">ggplot2</li>
+        <li class="tool-pill">Survival Analysis</li>
+        <li class="tool-pill">DESeq2</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/breast-cancer-cohort.html" target="_blank">More Info</a>
+        <a class="btn btn-ghost" href="https://doi.org/10.1200/JCO.2026.44.16_suppl.1034" target="_blank" rel="noopener">ASCO abstract 1034</a>
+      </div>
+    </article>
+
+    <!-- Task Titans (in progress) -->
+    <article class="project-card" data-tags="Software Development, Project Management, Data Science">
+      <h3>Task Titans (in progress)</h3>
+      <p>A chore-competition app: a REST API with 14 endpoints for accounts, groups, logging and leaderboards, plus a browser stopwatch client.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">Node.js</li>
+        <li class="tool-pill">Express</li>
+        <li class="tool-pill">MongoDB</li>
+        <li class="tool-pill">JWT</li>
+        <li class="tool-pill">JavaScript</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/task-titans.html" target="_blank">More Info</a>
+        <a class="btn btn-ghost" href="https://github.com/moneeeeeee/task-titans" target="_blank" rel="noopener">Source code</a>
+      </div>
+    </article>
+
+    <!-- Clean Clash Timer -->
+    <article class="project-card" data-tags="Software Development">
+      <h3>Clean Clash Timer</h3>
+      <p>A browser stopwatch that ranks your five fastest times per chore and tells you when you set a personal best.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">HTML</li>
+        <li class="tool-pill">CSS</li>
+        <li class="tool-pill">JavaScript</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/clean-clash.html" target="_blank">More Info</a>
+        <a class="btn btn-ghost" href="https://moneeeeeee.github.io/clean-clash/" target="_blank" rel="noopener">Live demo</a>
+        <a class="btn btn-ghost" href="https://github.com/moneeeeeee/clean-clash" target="_blank" rel="noopener">Source code</a>
+      </div>
+    </article>
+
     <!-- Grid Migration Simulator -->
     <article class="project-card" data-tags="Software Development">
       <h3>Grid Migration Simulator</h3>
-      <p>Java-based simulation exploring how agents migrate across a grid based on satisfaction, crowding, and fairness.</p>
+      <p>An agent-based city simulation in Java where residents move across a grid based on satisfaction, crowding and fairness.</p>
       <ul class="tool-badges">
         <li class="tool-pill">Java</li>
         <li class="tool-pill">Gradle</li>
@@ -107,11 +239,11 @@
         <a class="btn" href="Projects/grid-migration.html" target="_blank">More Info</a>
       </div>
     </article>
-    
-    <!-- Cancer Genomics -->
+
+    <!-- Cancer Genomics &amp; Multi-Omics Analysis -->
     <article class="project-card" data-tags="Biomedical Engineering, Data Science, Research">
-      <h3>Cancer Genomics & Multi-Omics Analysis</h3>
-      <p>Built an R pipeline using TCGA kidney cancer data to align patient cohorts, cluster mutations, run survival analysis, and identify enriched pathways.</p>
+      <h3>Cancer Genomics &amp; Multi-Omics Analysis</h3>
+      <p>An R pipeline on TCGA kidney cancer data: patient matching across data types, mutation clustering, survival analysis and pathway enrichment.</p>
       <ul class="tool-badges">
         <li class="tool-pill">R</li>
         <li class="tool-pill">DESeq2</li>
@@ -122,11 +254,11 @@
         <a class="btn" href="Projects/cancer-genomics.html" target="_blank">More Info</a>
       </div>
     </article>
-    
-    <!-- Single-Cell Aspiration -->
-    <article class="project-card" data-tags="Biomedical Engineering, Embedded Systems, CAD & Modelling, Project Management">
+
+    <!-- Automated Single-Cell Aspiration System -->
+    <article class="project-card" data-tags="Biomedical Engineering, Embedded Systems, CAD &amp; Modelling, Project Management">
       <h3>Automated Single-Cell Aspiration System</h3>
-      <p>Closed-loop Arduino control system for a microfluidic device isolating single cells using negative pressure.</p>
+      <p>A closed-loop Arduino controller that holds suction within ±0.5 kPa in a microfluidic device that isolates single cells.</p>
       <ul class="tool-badges">
         <li class="tool-pill">Arduino</li>
         <li class="tool-pill">MATLAB</li>
@@ -137,26 +269,41 @@
         <a class="btn" href="Projects/single-cell-aspiration.html" target="_blank">More Info</a>
       </div>
     </article>
-    
-    <!-- MRI Pump -->
-    <article class="project-card" data-tags="Biomedical Engineering, Embedded Systems, CAD & Modelling, Project Management">
-      <h3>MRI Compatible Infusion Pump</h3>
-      <p>Non-ferrous infusion pump for MRI environments with 3D-printed parts, stepper actuation, and pressure feedback control.</p>
+
+    <!-- MRI-Compatible Infusion Pump -->
+    <article class="project-card" data-tags="Biomedical Engineering, Embedded Systems, CAD &amp; Modelling, Project Management">
+      <h3>MRI-Compatible Infusion Pump</h3>
+      <p>A low-cost, fully non-ferrous syringe pump with 3D-printed gear actuation and pressure feedback control, for use near MRI scanners.</p>
       <ul class="tool-badges">
         <li class="tool-pill">SolidWorks</li>
         <li class="tool-pill">Arduino</li>
         <li class="tool-pill">MATLAB</li>
-        <li class="tool-pill">Python</li>
+        <li class="tool-pill">3D Printing</li>
       </ul>
       <div class="buttons">
         <a class="btn" href="Projects/mri-infusion-pump.html" target="_blank">More Info</a>
       </div>
     </article>
-    
-    <!-- BMI Survival -->
+
+    <!-- Biosignal Instrumentation Labs -->
+    <article class="project-card" data-tags="Biomedical Engineering, Embedded Systems, Data Science">
+      <h3>Biosignal Instrumentation Labs</h3>
+      <p>EMG-controlled servo, an EMG amplifier designed in LTSpice, ECG and PPG heart-rate detection, and ultrasound image processing.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">MATLAB</li>
+        <li class="tool-pill">Arduino</li>
+        <li class="tool-pill">LTSpice</li>
+        <li class="tool-pill">EMG / ECG</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/emg-instrumentation.html" target="_blank">More Info</a>
+      </div>
+    </article>
+
+    <!-- BMI-Stratified Survival Analysis -->
     <article class="project-card" data-tags="Biomedical Engineering, Data Science, Research">
       <h3>BMI-Stratified Survival Analysis</h3>
-      <p>Analyzed TCGA clinical data to compare survival outcomes across BMI categories using Kaplan–Meier models.</p>
+      <p>Compared survival across BMI categories in TCGA kidney cancer clinical data using Kaplan-Meier curves and log-rank tests.</p>
       <ul class="tool-badges">
         <li class="tool-pill">R</li>
         <li class="tool-pill">Survival Analysis</li>
@@ -166,11 +313,11 @@
         <a class="btn" href="Projects/bmi-survival.html" target="_blank">More Info</a>
       </div>
     </article>
-    
-    <!-- scRNA-seq -->
+
+    <!-- Sequence Alignment &amp; RNA-seq Read Quality -->
     <article class="project-card" data-tags="Biomedical Engineering, Data Science, Research">
-      <h3>Single-Cell RNA-Seq Pipeline</h3>
-      <p>Implemented alignment, quality control, and visualization workflows for scRNA-seq data including custom alignment algorithms.</p>
+      <h3>Sequence Alignment &amp; RNA-seq Read Quality</h3>
+      <p>Implemented pairwise alignment by dynamic programming in R, then parsed SAM files from single-cell RNA-seq data to compute quality metrics.</p>
       <ul class="tool-badges">
         <li class="tool-pill">R</li>
         <li class="tool-pill">SAM Parsing</li>
@@ -180,11 +327,11 @@
         <a class="btn" href="Projects/scrna-seq-pipeline.html" target="_blank">More Info</a>
       </div>
     </article>
-    
-    <!-- EEG -->
+
+    <!-- EEG Signal Acquisition &amp; BCI Analysis -->
     <article class="project-card" data-tags="Biomedical Engineering, Research">
-      <h3>EEG Signal Acquisition & BCI Analysis</h3>
-      <p>Calibrated a 14-channel EEG system, analyzed brainwave bands, removed artifacts, and trained BCI models for neurofeedback.</p>
+      <h3>EEG Signal Acquisition &amp; BCI Analysis</h3>
+      <p>Calibrated a 14-channel EEG headset, analysed four frequency bands and demonstrated real-time neurofeedback with trained mental commands.</p>
       <ul class="tool-badges">
         <li class="tool-pill">EEG</li>
         <li class="tool-pill">Signal Processing</li>
@@ -194,11 +341,11 @@
         <a class="btn" href="Projects/eeg-bci.html" target="_blank">More Info</a>
       </div>
     </article>
-    
-    <!-- Spinal Cord Scaffold -->
-    <article class="project-card" data-tags="Biomedical Engineering, Research, Regulatory & Documentation">
-      <h3>Spinal Cord Scaffold – CNT-MSC Implant</h3>
-      <p>Proposed a fibrin scaffold with CNTs and stem cells for spinal cord regeneration, addressing biocompatibility and regulatory pathways.</p>
+
+    <!-- Spinal Cord Scaffold Design Proposal -->
+    <article class="project-card" data-tags="Biomedical Engineering, Research, Regulatory &amp; Documentation">
+      <h3>Spinal Cord Scaffold Design Proposal</h3>
+      <p>A design proposal for a regenerative spinal implant, with the regulatory pathway mapped from in vitro testing to clinical trial application.</p>
       <ul class="tool-badges">
         <li class="tool-pill">Literature Review</li>
         <li class="tool-pill">ISO Standards</li>
@@ -208,25 +355,37 @@
         <a class="btn" href="Projects/spinal-cord-scaffold.html" target="_blank">More Info</a>
       </div>
     </article>
-    
-    <!-- Weighted Squat Jumps -->
-    <article class="project-card" data-tags="Biomedical Engineering, Embedded Systems, CAD & Modelling">
-      <h3>Weighted Squat Jumps Aiding Device</h3>
-      <p>Prototyped a device to standardize weighted squat jumps for training and rehab, with optional sensing and data logging.</p>
+
+    <!-- Weighted Squat Jump Aiding Device (design concept) -->
+    <article class="project-card" data-tags="Biomedical Engineering, CAD &amp; Modelling">
+      <h3>Weighted Squat Jump Aiding Device (design concept)</h3>
+      <p>A team design concept for a device that standardizes depth and tempo in weighted squat jumps for training and rehabilitation.</p>
       <ul class="tool-badges">
         <li class="tool-pill">SolidWorks</li>
-        <li class="tool-pill">3D Printing</li>
-        <li class="tool-pill">Microcontrollers</li>
+        <li class="tool-pill">Technical Drawings</li>
       </ul>
       <div class="buttons">
         <a class="btn" href="Projects/weighted-squat-jumps.html" target="_blank">More Info</a>
       </div>
     </article>
 
+    <!-- Neck Braces in Mountain Biking and Motocross (in progress) -->
+    <article class="project-card" data-tags="Research, Biomedical Engineering">
+      <h3>Neck Braces in Mountain Biking and Motocross (in progress)</h3>
+      <p>A team literature review on whether neck braces prevent neck and spinal cord injury, written for UBC&#x27;s open injury biomechanics textbook.</p>
+      <ul class="tool-badges">
+        <li class="tool-pill">Literature Review</li>
+        <li class="tool-pill">Injury Biomechanics</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="Projects/neck-brace-review.html" target="_blank">More Info</a>
+      </div>
+    </article>
+
     </div>
     </section>
 
-    
+
   <!-- WORK-->
   <section id="work" class="section">
   <h2>Experiences</h2>
@@ -240,24 +399,58 @@
 
 
   <div class="work-grid">
+    <!-- UBC TA -->
+    <article class="work-card" data-type="work" data-tags="Data Science, Community & Leadership, Biomedical Engineering">
+      <header class="work-head">
+        <h3 class="work-title">UBC School of Biomedical Engineering</h3>
+        <span class="role">Teaching Assistant, Introduction to Bioinformatics</span>
+        <span class="timeplace">Vancouver, BC, Canada • Sept 2026 – Present</span>
+      </header>
+      <p class="work-blurb">Supporting students learning genomic data analysis in R.</p>
+      <ul class="work-points">
+        <li>Mentor three project teams analysing TCGA cancer cohorts, from data cleaning to survival analysis.</li>
+        <li>Prepare lab presentations that connect each lab to skills from earlier ones.</li>
+        <li>Tools: <strong>R, tidyverse, survival analysis, TCGA</strong></li>
+      </ul>
+    </article>
+
+    <!-- GSC -->
+    <article class="work-card" data-type="work" data-tags="Software Development, Data Science, Machine Learning, Research, Biomedical Engineering, Regulatory & Documentation">
+      <header class="work-head">
+        <h3 class="work-title">Canada's Michael Smith Genome Sciences Centre, BC Cancer</h3>
+        <span class="role">Bioinformatics Co-op Student, Clinical Informatics</span>
+        <span class="timeplace">Vancouver, BC, Canada • Sept 2025 – Apr 2026</span>
+      </header>
+      <p class="work-blurb">Eight months on the clinical informatics team supporting precision oncology.</p>
+      <ul class="work-points">
+        <li>Built an R Shiny analytics dashboard used by 35+ staff (<a href="Projects/gsc-dashboard.html">details</a>).</li>
+        <li>Compared 4 LLM tools and wrote the team's AI-assisted curation workflow (<a href="Projects/gsc-ai-curation.html">details</a>).</li>
+        <li>Curated 131 evidence statements into the public CIViC knowledgebase (<a href="Projects/gsc-curation.html">details</a>).</li>
+        <li>Co-authored an ASCO 2026 abstract on a 43-patient breast cancer cohort (<a href="Projects/breast-cancer-cohort.html">details</a>).</li>
+        <li>Tools: <strong>R, Shiny, ggplot2, CIViC, GraphKB, LLMs</strong></li>
+      </ul>
+    </article>
+
     <!-- Mitra -->
    <article class="work-card" data-type="work" data-tags="Software Development, Wet Lab, Biomedical Engineering, Research, Regulatory & Documentation, Data Science">
       <header class="work-head">
-        <h3 class="work-title">Mitra Biotechnologies </h3>
-          <span class="role">Biomedical Engineering Intern</span>
-        <span class="timeplace">Vancouver, BC, Canada • [Dates]</span>
+        <h3 class="work-title">Mitra Biotechnologies</h3>
+        <span class="role">Biomedical Engineering Intern</span>
+        <span class="timeplace">Vancouver, BC, Canada • Jun 2024 – Nov 2024</span>
       </header>
-      <p class="work-blurb">Brief one-liner about what Mitra does and what you owned. Keep this to 1–2 short sentences.</p>
+      <p class="work-blurb">Image analysis and prototype testing for a paper-based microfluidic diagnostic.</p>
       <ul class="work-points">
-        <li>Outcome or system you built; include a metric if possible.</li>
-        <li>Tools: <strong>[Tools here]</strong></li>
+        <li>Developed Python image-analysis workflows that improved biomarker detection accuracy by 10%.</li>
+        <li>Led prototype fabrication and testing to a 90% quality-control pass rate.</li>
+        <li>Tools: <strong>Python, OpenCV, scikit-image, Linux, SOPs</strong></li>
       </ul>
     </article>
 
     <!-- MBRU -->
     <article class="work-card" data-type="work" data-tags="Research">
       <header class="work-head">
-        <h3 class="work-title">Mohammed Bin Rashid University of Medicine and Health - <span class="role">Research Intern, Vaccine Hesitancy</span></h3>
+        <h3 class="work-title">Mohammed Bin Rashid University of Medicine and Health Sciences</h3>
+        <span class="role">Research Intern, Vaccine Hesitancy</span>
         <span class="timeplace">Dubai, UAE • Jul 2021 – Aug 2021</span>
       </header>
       <p class="work-blurb">Literature + social data study on public resistance to vaccination; supported thesis development and team workflows.</p>
@@ -268,24 +461,11 @@
       </ul>
     </article>
 
-    <!-- Virtus Dental Centre -->
-   <article class="work-card" data-type="work" data-tags="Clinical Experience">
-      <header class="work-head">
-        <h3 class="work-title">Virtus Dental Centre — <span class="role">Clinic Assistant/Observer</span></h3>
-        <span class="timeplace">Salmiya, Kuwait • Jun 2020 - Jul 2021</span>
-      </header>
-      <p class="work-blurb">Supported patient flow and observed clinical protocols with emphasis on communication and turnaround time.</p>
-      <ul class="work-points">
-        <li>Assisted intake, room prep, and sterilization workflows; shadowed procedures to learn standards.</li>
-        <li>Prioritized patient comfort and clarity in a fast-paced clinic.</li>
-        <li>Tools: <strong>[Clinic systems], SOPs</strong></li>
-      </ul>
-    </article>
-
     <!-- APO -->
     <article class="work-card" data-type="volunteering" data-tags="Community & Leadership, Project Management">
       <header class="work-head">
-        <h3 class="work-title">Alpha Phi Omega (UBC) — <span class="role">Co-President & Marketing Director</span></h3>
+        <h3 class="work-title">Alpha Phi Omega (UBC)</h3>
+        <span class="role">Co-President & Marketing Director</span>
         <span class="timeplace">UBC • Sept 2023 - May 2025</span>
       </header>
       <p class="work-blurb">Led a 40+ member chapter; ran workshops, campaigns, and cross-team coordination.</p>
@@ -299,7 +479,8 @@
     <!-- Best Buddies -->
     <article class="work-card" data-type="volunteering" data-tags="Community & Leadership">
       <header class="work-head">
-        <h3 class="work-title">Best Buddies — <span class="role">Fundraising & Outreach</span></h3>
+        <h3 class="work-title">Best Buddies</h3>
+        <span class="role">Fundraising & Outreach</span>
         <span class="timeplace">UBC • Sept 2022 - Present</span>
       </header>
       <p class="work-blurb">Planned inclusive events; analyzed turnout and donations to improve engagement.</p>
@@ -309,6 +490,14 @@
         <li>Tools: <strong>Excel, Google Sheets</strong></li>
       </ul>
     </article>
+  </div>
+
+  <h2>Publications</h2>
+  <div class="info-card">
+    <ul class="pubs">
+      <li>Danos AM, Coffman AC, … <strong>Basker M</strong>, … Griffith OL. CIViC 2026: Expanding Cancer Variant Curation with AI, Genome-Wide Biomarkers, and Genomic Regions. <em>Nucleic Acids Research</em>, 2026. <a href="https://doi.org/10.1093/nar/gkag1156" target="_blank" rel="noopener">doi:10.1093/nar/gkag1156</a></li>
+      <li>Arthur G, Wee K, Hanos M, Pleasance ED, Xu J, <strong>Basker M</strong>, et al. Real-world outcomes and tumor gene expression analysis of sacituzumab govitecan- and trastuzumab deruxtecan-treated metastatic breast cancer. <em>J Clin Oncol</em> 44, 2026 (suppl 16; abstr 1034). <a href="https://doi.org/10.1200/JCO.2026.44.16_suppl.1034" target="_blank" rel="noopener">ASCO Annual Meeting poster</a></li>
+    </ul>
   </div>
 </section>
 
@@ -362,7 +551,7 @@
   </div>
 </section>
 </main>
-  
+
   <footer class="site-footer">
     <h2>Let's Connect!</h2>
     <nav class="socials" aria-label="Social links">
@@ -388,11 +577,7 @@
       
   </footer>
 
-  
-  
-
 <script src="script.js" defer></script>
-  
+
 </body>
 </html>
-

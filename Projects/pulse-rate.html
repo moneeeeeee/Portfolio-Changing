@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Motion-Compensated Pulse Rate Estimation – Project Details</title>
+  <meta name="description" content="A signal-processing algorithm that estimates pulse rate from a wrist wearable during exercise to within 1.13 BPM on a held-out test." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">Motion-Compensated Pulse Rate Estimation</h1>
+      <p class="subtitle">Individual project | Python, SciPy, FFT, PPG</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="project-details">
+      <h2>Overview</h2>
+      <p>A signal-processing algorithm that estimates pulse rate from a wrist wearable during exercise to within 1.13 BPM on a held-out test.</p>
+      <p>During exercise, arm swing produces a periodic signal in a wrist PPG sensor that can be stronger than the heartbeat. An algorithm that simply picks the strongest frequency ends up tracking the runner&#x27;s cadence instead of their pulse.</p>
+      <div class="buttons">
+        <a class="btn" href="https://github.com/moneeeeeee/pulse-rate-estimation" target="_blank" rel="noopener">Source code</a>
+      </div>
+
+      <h2>Key Numbers</h2>
+      <div class="stats">
+        <div class="stat"><span class="num">1.13 BPM</span><span class="lbl">error on held-out test (90% availability)</span></div>
+        <div class="stat"><span class="num">12</span><span class="lbl">subjects in the TROIKA dataset</span></div>
+        <div class="stat"><span class="num">8 s / 2 s</span><span class="lbl">window length / shift</span></div>
+        <div class="stat"><span class="num">2.7 vs 7.0 BPM</span><span class="lbl">error: most vs least confident windows</span></div>
+      </div>
+
+      <h2>Tools</h2>
+      <ul class="tool-badges">
+        <li class="tool-pill">Python</li>
+        <li class="tool-pill">NumPy</li>
+        <li class="tool-pill">SciPy</li>
+        <li class="tool-pill">FFT</li>
+        <li class="tool-pill">Butterworth filtering</li>
+        <li class="tool-pill">PPG and accelerometer data</li>
+      </ul>
+
+      <h2>Role</h2>
+      <p>Individual project. Udacity AI in Healthcare Nanodegree (June – Aug 2026).</p>
+
+      <figure class="figure"><img src="../assets/pulse-rate-estimate.png" alt="Estimated pulse rate against the ECG reference for one exercise recording." loading="lazy" /><figcaption>Estimated pulse rate against the ECG reference for one exercise recording.</figcaption></figure>
+
+      <h2>Description</h2>
+      <ul>
+        <li>Band-pass filtered the PPG and three-axis accelerometer signals to the plausible pulse range and split them into overlapping windows.</li>
+        <li>Transformed each window with the FFT and listed candidate pulse frequencies from the spectral peaks.</li>
+        <li>Scored each candidate on three things: PPG spectral strength, overlap with accelerometer peaks, and continuity with the previous estimate.</li>
+        <li>Used dynamic programming to select the lowest-cost sequence of pulse rates across all windows, which prevents unrealistic jumps.</li>
+        <li>Tuned the three weights on the training recordings; raising the motion penalty alone cut error on one recording from 20.7 to 4.5 BPM.</li>
+        <li>Produced a confidence value for every estimate and checked that it ranks estimate quality correctly.</li>
+        <li>Applied resting-heart-rate analysis to 24-hour records from 1,537 subjects to compare trends across age groups and sexes.</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>The algorithm passed the course&#x27;s held-out test at 1.13 BPM mean absolute error. It is a deterministic method tuned on 12 subjects, and one training recording stayed difficult (about 27 BPM error), so it would need a larger and more varied dataset before any real use. The project joined signal processing with how the body moves, which is where my interests meet.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Monesha Basker</p>
+  </footer>
+</body>
+</html>

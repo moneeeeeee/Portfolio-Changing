@@ -3,50 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MRI Compatible Infusion Pump – Project Details</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>MRI-Compatible Infusion Pump – Project Details</title>
+  <meta name="description" content="A low-cost, fully non-ferrous syringe pump with 3D-printed gear actuation and pressure feedback control, for use near MRI scanners." />
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <header class="topbar">
-  <a class="back-btn" href="../index.html" aria-label="Back to portfolio">←</a>
-  <a class="brand" href="../index.html">Monesha Basker</a>
-  <nav class="nav" aria-label="Primary">
-    <a class="nav-link active" href="../index.html">Projects</a>
-    <a class="nav-link" href="../about.html">About Me</a>
-    <a class="nav-link" href="../work.html">Work</a>
-    <a class="nav-link" href="../contact.html">Contact</a>
-  </nav>
-</header>
-
-    <h1>MRI Compatible Infusion Pump</h1>
-    <p class="subtitle">Embedded Systems Developer and Mechanical Designer | SolidWorks, Arduino, MATLAB, Python</p>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+    </nav>
   </header>
+
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">MRI-Compatible Infusion Pump</h1>
+      <p class="subtitle">Embedded systems developer and mechanical designer | SolidWorks, Arduino, MATLAB, 3D Printing</p>
+    </div>
+  </section>
 
   <main class="container">
     <section class="project-details">
       <h2>Overview</h2>
-      <p>We built a non-ferrous infusion pump for MRI environments using 3D-printed parts and stepper-based syringe actuation, with pressure sensing and feedback control.</p>
+      <p>A low-cost, fully non-ferrous syringe pump with 3D-printed gear actuation and pressure feedback control, for use near MRI scanners.</p>
+      <p>Standard infusion pumps contain ferrous parts that pose safety and interference risks near an MRI scanner. The team set out to design a low-cost fluid delivery system with no ferrous components.</p>
 
       <h2>Tools</h2>
-      <ul>
-        <li>SolidWorks for mechanical design and drawings</li>
-        <li>3D printing for PLA components</li>
-        <li>MPX5010 sensor with Wheatstone bridge and instrumentation amplifier</li>
-        <li>Arduino control with data streaming to Excel, MATLAB and Python for analysis</li>
+      <ul class="tool-badges">
+        <li class="tool-pill">SolidWorks</li>
+        <li class="tool-pill">3D printing</li>
+        <li class="tool-pill">Arduino</li>
+        <li class="tool-pill">MPX5010 sensor</li>
+        <li class="tool-pill">TinkerCAD</li>
+        <li class="tool-pill">MATLAB</li>
+        <li class="tool-pill">MS Project</li>
       </ul>
 
       <h2>Role</h2>
-      <p>Embedded Systems Developer and Mechanical Designer</p>
+      <p>Embedded systems developer and mechanical designer. UBC biomedical engineering design project, team of five.</p>
 
       <h2>Description</h2>
-      <p>I integrated a differential pressure sensor and built a feedback loop that compares live readings to a potentiometer-defined target. The controller adjusts plunger motion to hold pressure within tight bounds and handles faults such as occlusions. We simulated circuits in TinkerCAD before lab tests and documented requirements, interfaces, and test plans for traceability.</p>
-      <p>The design supports MRI-guided procedures and research that needs precise fluid delivery near a magnet. I strengthened skills in embedded sensing, mechanical actuation, and verification under constraints.</p>
+      <ul>
+        <li>Co-designed a gear-driven syringe driver made from 3D-printed PLA parts, converting stepper rotation to linear plunger travel through a gear-rail interface.</li>
+        <li>Integrated a differential pressure sensor with a Wheatstone bridge and instrumentation amplifier, and streamed readings to a computer in real time.</li>
+        <li>Co-developed closed-loop control that compares live pressure with a potentiometer-set target and steps the motor to hold it, with fault-handling logic.</li>
+        <li>Simulated the circuit in TinkerCAD before physical testing.</li>
+        <li>Planned build and test phases with a Gantt chart, coordinated procurement and kept requirements traceable.</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>The project gave me hands-on experience with sensor integration and precision actuation, and showed me how design controls such as traceable requirements keep a five-person team aligned.</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2025 Monesha Basker</p>
+    <p>© 2026 Monesha Basker</p>
   </footer>
 </body>
 </html>

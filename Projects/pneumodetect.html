@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PneumoDetect: Pneumonia Detection from Chest X-rays – Project Details</title>
+  <meta name="description" content="A VGG16 classifier with DICOM input checks and an FDA-style submission. A study in honest evaluation: it is not clinically ready, and the write-up explains why." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">PneumoDetect: Pneumonia Detection from Chest X-rays</h1>
+      <p class="subtitle">Individual project | Python, TensorFlow/Keras, VGG16, pydicom</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="project-details">
+      <h2>Overview</h2>
+      <p>A VGG16 classifier with DICOM input checks and an FDA-style submission. A study in honest evaluation: it is not clinically ready, and the write-up explains why.</p>
+      <p>Could a transfer-learning model flag pneumonia on frontal chest X-rays well enough to assist a radiologist? The NIH dataset has 112,120 images from 30,805 patients, but pneumonia appears in only 1.28% of them, so a model can score high accuracy while missing nearly every case.</p>
+      <div class="buttons">
+        <a class="btn" href="https://github.com/moneeeeeee/pneumodetect" target="_blank" rel="noopener">Source code</a>
+      </div>
+
+      <h2>Key Numbers</h2>
+      <div class="stats">
+        <div class="stat"><span class="num">112,120</span><span class="lbl">chest X-rays analysed</span></div>
+        <div class="stat"><span class="num">1.28%</span><span class="lbl">pneumonia prevalence</span></div>
+        <div class="stat"><span class="num">2,308</span><span class="lbl">balanced training images</span></div>
+        <div class="stat"><span class="num">0.654</span><span class="lbl">validation ROC AUC</span></div>
+      </div>
+
+      <h2>Tools</h2>
+      <ul class="tool-badges">
+        <li class="tool-pill">Python</li>
+        <li class="tool-pill">TensorFlow/Keras</li>
+        <li class="tool-pill">VGG16</li>
+        <li class="tool-pill">pydicom</li>
+        <li class="tool-pill">pandas</li>
+        <li class="tool-pill">Matplotlib</li>
+      </ul>
+
+      <h2>Role</h2>
+      <p>Individual project. Udacity AI in Healthcare Nanodegree (June – Aug 2026).</p>
+
+      <h2>Description</h2>
+      <ul>
+        <li>Analysed prevalence, demographics, view position, comorbidities and pixel intensities before modelling.</li>
+        <li>Split the data 80/20 by patient, because patients averaged 3.64 images each and an image-level split would leak.</li>
+        <li>Found that pneumonia cases were more often AP views (56% against 40%), so I stratified by view and kept view position out of the model inputs.</li>
+        <li>Compared class weighting with balanced downsampling and chose downsampling for more stable training.</li>
+        <li>Trained a frozen VGG16 with a new classification head, and chose the threshold by sweeping F1 on a validation set kept at real-world prevalence.</li>
+        <li>Wrote three DICOM checks (body part, patient position, image type) that reject out-of-scope studies before inference.</li>
+        <li>Wrote an FDA-style submission stating intended use, limitations and risks.</li>
+      </ul>
+
+<h2>Results</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Measure (validation set: 22,388 images, 1.24% pneumonia)</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>ROC AUC</td><td>0.654</td></tr>
+<tr><td>Operating threshold (chosen by maximum F1)</td><td>0.807</td></tr>
+<tr><td>Precision</td><td>about 0.035</td></tr>
+<tr><td>Recall (sensitivity)</td><td>about 0.09</td></tr>
+<tr><td>F1</td><td>about 0.05</td></tr>
+<tr><td>True positives / false positives</td><td>25 / 681</td></tr>
+<tr><td>False negatives / true negatives</td><td>252 / 21,430</td></tr>
+<tr><td>Accuracy</td><td>about 96% (misleading at this prevalence)</td></tr>
+</tbody></table></div>
+
+<h2>Why this model is not ready for clinical use</h2>
+<p>PneumoDetect runs end to end, but I would not put it in front of a radiologist. At its best operating point it finds 25 of 277 pneumonia cases, about 1 in 11, and raises roughly 27 false alarms for every true detection. Accuracy looks high at about 96% only because almost 99% of the images have no pneumonia. A tool that misses most cases and is usually wrong when it does flag one would add reading work without adding safety.</p>
+<ol>
+<li><strong>The labels are noisy.</strong> The NIH labels were mined from radiology reports by natural language processing, not confirmed by radiologists reading the images. Pneumonia is hard to call on a chest X-ray and readers disagree on it, so both training and evaluation carry label error.</li>
+<li><strong>Pneumonia rarely appears alone.</strong> In my analysis, 42% of pneumonia images also showed infiltration, followed by edema (24%), effusion (19%) and atelectasis (18%). Pixel-intensity distributions for pneumonia, infiltration and normal images overlapped heavily, so the model can learn the companion finding instead of pneumonia.</li>
+<li><strong>There were few positive examples.</strong> Only 1,431 of 112,120 images (1.28%) are pneumonia. Balancing the classes left 2,308 training images, which is small for a deep network, and the validation loss was unstable from epoch to epoch.</li>
+<li><strong>The network was not adapted to X-rays.</strong> I used VGG16 as a frozen feature extractor with a small new classification head. Its features come from everyday photographs, and none of its layers were fine-tuned on radiographs.</li>
+<li><strong>The validation is not clinical validation.</strong> Performance was measured on a held-out portion of the same dataset, with the same noisy labels. There was no external hospital, no radiologist-adjudicated reference standard, and no testing by scanner, site or patient subgroup.</li>
+</ol>
+
+<h2>What it would take</h2>
+<ul>
+<li>A reference standard built from several board-certified radiologists reading each validation image, with majority vote and, where available, clinical or laboratory confirmation.</li>
+<li>More confirmed pneumonia cases, and fine-tuning of the network (or a backbone pretrained on chest radiographs) instead of frozen features.</li>
+<li>External validation on images from other hospitals and scanners, reported by view position, age and sex.</li>
+<li>A sensitivity target agreed with clinicians before choosing the threshold, since a missed pneumonia costs more than a false alarm.</li>
+</ul>
+
+      <h2>Outcome</h2>
+      <p>What the project does demonstrate is the process around the model: choosing metrics by clinical consequence, preventing leakage, catching a confounder, guarding the input, and stating limits plainly. It taught me to report what a model cannot do as carefully as what it can.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Monesha Basker</p>
+  </footer>
+</body>
+</html>

@@ -4,46 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BMI-Stratified Survival Analysis – Project Details</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Compared survival across BMI categories in TCGA kidney cancer clinical data using Kaplan-Meier curves and log-rank tests." />
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <header class="topbar">
-    <a class="back-btn" href="../index.html" aria-label="Back to portfolio">←</a>
-    <a class="brand" href="../index.html">Monesha Basker</a>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
     <nav class="nav" aria-label="Primary">
-      <a class="nav-link active" href="../index.html">Projects</a>
-      <a class="nav-link" href="../about.html">About Me</a>
-      <a class="nav-link" href="../work.html">Work</a>
-      <a class="nav-link" href="../contact.html">Contact</a>
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
     </nav>
   </header>
 
-    <h1>BMI-Stratified Survival Analysis</h1>
-    <p class="subtitle">Statistical Analyst | R, survival, survminer, TCGA clinical data</p>
-  </header>
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">BMI-Stratified Survival Analysis</h1>
+      <p class="subtitle">Statistical analyst | R, Survival Analysis, TCGA</p>
+    </div>
+  </section>
 
   <main class="container">
     <section class="project-details">
       <h2>Overview</h2>
-      <p>I examined survival differences across BMI categories in TCGA KIRC clinical data using Kaplan–Meier models with log-rank tests.</p>
+      <p>Compared survival across BMI categories in TCGA kidney cancer clinical data using Kaplan-Meier curves and log-rank tests.</p>
+      <p>Is body mass index associated with survival in kidney cancer patients? The clinical data records BMI as a continuous value, which first has to become a usable grouping.</p>
 
       <h2>Tools</h2>
-      <ul>
-        <li>R with survival and survminer packages</li>
-        <li>BMI class variable engineered from CDC ranges</li>
+      <ul class="tool-badges">
+        <li class="tool-pill">R</li>
+        <li class="tool-pill">survival</li>
+        <li class="tool-pill">survminer</li>
+        <li class="tool-pill">TCGA clinical data</li>
       </ul>
 
       <h2>Role</h2>
-      <p>Statistical Analyst</p>
+      <p>Statistical analyst. UBC bioinformatics course lab.</p>
 
       <h2>Description</h2>
-      <p>I created a categorical bmi.class feature and generated survival curves and risk tables by group. I used log-rank testing for significance and summarized clinical relevance with clear plots. The work reinforced feature engineering, hypothesis-driven analysis, and clean reporting for clinical variables.</p>
+      <ul>
+        <li>Engineered a five-level BMI class variable following CDC ranges.</li>
+        <li>Generated Kaplan-Meier survival curves and risk tables for each class.</li>
+        <li>Tested differences between groups with the log-rank test and interpreted the result in clinical context.</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>The lab reinforced feature engineering from clinical variables and hypothesis-driven survival analysis with clear reporting.</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2025 Monesha Basker</p>
+    <p>© 2026 Monesha Basker</p>
   </footer>
 </body>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biosignal Instrumentation Labs – Project Details</title>
+  <meta name="description" content="EMG-controlled servo, an EMG amplifier designed in LTSpice, ECG and PPG heart-rate detection, and ultrasound image processing." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">Biosignal Instrumentation Labs</h1>
+      <p class="subtitle">Individual lab work | MATLAB, Arduino, LTSpice, EMG / ECG</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="project-details">
+      <h2>Overview</h2>
+      <p>EMG-controlled servo, an EMG amplifier designed in LTSpice, ECG and PPG heart-rate detection, and ultrasound image processing.</p>
+      <p>A series of labs following physiological signals from the body to a usable output: acquiring them, conditioning them in analog and digital form, and turning them into measurements or control signals.</p>
+
+      <h2>Key Numbers</h2>
+      <div class="stats">
+        <div class="stat"><span class="num">20–500 Hz</span><span class="lbl">EMG front-end passband</span></div>
+        <div class="stat"><span class="num">4th-order</span><span class="lbl">Butterworth band-pass</span></div>
+        <div class="stat"><span class="num">60 Hz</span><span class="lbl">mains notch</span></div>
+        <div class="stat"><span class="num">3-lead</span><span class="lbl">ECG with PPG and SpO2</span></div>
+      </div>
+
+      <h2>Tools</h2>
+      <ul class="tool-badges">
+        <li class="tool-pill">MATLAB</li>
+        <li class="tool-pill">Arduino</li>
+        <li class="tool-pill">LTSpice</li>
+        <li class="tool-pill">BioRadio</li>
+        <li class="tool-pill">Clarius ultrasound probe</li>
+      </ul>
+
+      <h2>Role</h2>
+      <p>Individual lab work. UBC biomedical instrumentation course.</p>
+
+      <h2>Description</h2>
+      <ul>
+        <li>Recorded bicep EMG and processed it in MATLAB: band-pass, 60 Hz notch, rectification and low-pass envelope extraction.</li>
+        <li>Streamed EMG into MATLAB in real time and drove LEDs and a servo motor through an Arduino in proportion to contraction strength.</li>
+        <li>Designed and simulated an EMG front end in LTSpice: instrumentation amplifier, active filters, summing amplifier and precision rectifier scaling the output to 0 to 5 V.</li>
+        <li>Recorded ECG, PPG and oxygen saturation together and wrote a peak-detection heart-rate method, checked against a pulse oximeter at rest and under cuff occlusion.</li>
+        <li>Integrated spirometer flow data to calculate tidal volume and vital capacity.</li>
+        <li>Enhanced ultrasound images with median filtering, intensity adjustment and sharpening, and acquired B-mode, Colour Doppler and elastography images on phantoms.</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>Seeing the same signal from both the circuit side and the software side made me comfortable moving between them.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Monesha Basker</p>
+  </footer>
+</body>
+</html>

@@ -4,61 +4,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Grid Migration Simulator – Project Details</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="An agent-based city simulation in Java where residents move across a grid based on satisfaction, crowding and fairness." />
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <header class="topbar">
-  <a class="back-btn" href="../index.html" aria-label="Back to portfolio">←</a>
-  <a class="brand" href="../index.html">Monesha Basker</a>
-  <nav class="nav" aria-label="Primary">
-    <a class="nav-link active" href="../index.html">Projects</a>
-    <a class="nav-link" href="../about.html">About Me</a>
-    <a class="nav-link" href="../work.html">Work</a>
-    <a class="nav-link" href="../contact.html">Contact</a>
-  </nav>
-</header>
-
-    <h1>Grid Migration Simulator</h1>
-    <p class="subtitle">Simulation Developer | Java, Gradle, JUnit</p>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+    </nav>
   </header>
+
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">Grid Migration Simulator</h1>
+      <p class="subtitle">Developer | Java, Gradle, JUnit</p>
+    </div>
+  </section>
 
   <main class="container">
     <section class="project-details">
       <h2>Overview</h2>
-      <p>
-        I designed and implemented a city simulation in Java to explore how agents migrate through a grid-based environment 
-        based on satisfaction, crowding, and fairness. Each agent represents a resident evaluating their surroundings to 
-        decide whether to stay, move, or relocate.
-      </p>
+      <p>An agent-based city simulation in Java where residents move across a grid based on satisfaction, crowding and fairness.</p>
+      <p>How do individual decisions to stay or move add up to city-wide patterns such as congestion and clustering? The difficulty in simulating this is consistency: if agents move one at a time, earlier moves change what later agents see.</p>
 
       <h2>Tools</h2>
-      <ul>
-        <li>Java (object-oriented design)</li>
-        <li>Gradle (build automation)</li>
-        <li>JUnit (testing)</li>
+      <ul class="tool-badges">
+        <li class="tool-pill">Java</li>
+        <li class="tool-pill">Gradle</li>
+        <li class="tool-pill">JUnit</li>
+        <li class="tool-pill">object-oriented design</li>
       </ul>
 
       <h2>Role</h2>
-      <p>Simulation Developer</p>
+      <p>Developer. UBC software construction course.</p>
 
       <h2>Description</h2>
-      <p>
-        The simulation used modular classes for agents, buildings, walkways, and time tracking. I implemented a two-step 
-        update system to ensure consistency in agent decision-making across the grid. Agents evaluated satisfaction thresholds, 
-        reset conditions, and density limits when deciding whether to move. I integrated Gradle for build automation and 
-        JUnit to test movement logic and system stability. 
-      </p>
-      <p>
-        To analyze outcomes, I built custom TimeSeries objects to track agent behavior and placement over time, which revealed 
-        emergent patterns such as congestion and clustering. This project showed how local decision-making scales into large 
-        system behavior — a concept directly relevant to distributed systems, smart city planning, and load balancing.
-      </p>
+      <ul>
+        <li>Designed modular classes for agents, buildings, walkways and time tracking.</li>
+        <li>Implemented a two-step update that computes every agent&#x27;s decision before applying any, keeping grid state consistent within a time step.</li>
+        <li>Made satisfaction thresholds, reset conditions and density limits configurable.</li>
+        <li>Automated builds with Gradle and tested movement logic and stability with JUnit.</li>
+        <li>Built TimeSeries objects that record agent placement over time for analysis.</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>The simulation showed how local rules produce system-level behaviour, an idea that carries over to load balancing and pedestrian flow. Course policy keeps the code private.</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2025 Monesha Basker</p>
+    <p>© 2026 Monesha Basker</p>
   </footer>
 </body>
 </html>

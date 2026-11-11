@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task Titans (in progress) – Project Details</title>
+  <meta name="description" content="A chore-competition app: a REST API with 14 endpoints for accounts, groups, logging and leaderboards, plus a browser stopwatch client." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">Task Titans (in progress)</h1>
+      <p class="subtitle">Personal project | Node.js, Express, MongoDB, JWT, JavaScript</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="project-details">
+      <h2>Overview</h2>
+      <p>A chore-competition app: a REST API with 14 endpoints for accounts, groups, logging and leaderboards, plus a browser stopwatch client.</p>
+      <p>Clean Clash showed that timing chores is more fun as a competition, but it only works for one person in one browser. Task Titans adds accounts, groups and shared leaderboards, which meant learning backend development outside my coursework.</p>
+      <div class="buttons">
+        <a class="btn" href="https://github.com/moneeeeeee/task-titans" target="_blank" rel="noopener">Source code</a>
+      </div>
+
+      <h2>Key Numbers</h2>
+      <div class="stats">
+        <div class="stat"><span class="num">14</span><span class="lbl">REST endpoints</span></div>
+        <div class="stat"><span class="num">3</span><span class="lbl">leaderboard ranges: day, week, month</span></div>
+      </div>
+
+      <h2>Tools</h2>
+      <ul class="tool-badges">
+        <li class="tool-pill">Node.js</li>
+        <li class="tool-pill">Express</li>
+        <li class="tool-pill">MongoDB (Mongoose)</li>
+        <li class="tool-pill">JWT</li>
+        <li class="tool-pill">bcrypt</li>
+        <li class="tool-pill">JavaScript</li>
+      </ul>
+
+      <h2>Role</h2>
+      <p>Personal project. Individual, ongoing.</p>
+
+      <h2>Description</h2>
+      <ul>
+        <li>Designed the data model for users, groups, tasks and timed logs in MongoDB.</li>
+        <li>Built signup and login with bcrypt password hashing and JSON Web Tokens; each new user gets a private group automatically.</li>
+        <li>Protected routes with token verification and group-membership checks.</li>
+        <li>Wrote leaderboard logic for best times, per-user averages over daily, weekly and monthly ranges, daily summaries and percentile feedback against a user&#x27;s own history.</li>
+        <li>Built a stopwatch client that logs a timed chore to every group the user belongs to.</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>The backend and stopwatch client work locally. Charts and deployment are the next steps, and I plan to rebuild the service in Python with FastAPI. The project taught me how much design lives in the data model.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Monesha Basker</p>
+  </footer>
+</body>
+</html>

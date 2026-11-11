@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI-Assisted Literature Curation – Project Details</title>
+  <meta name="description" content="Compared 4 LLM tools for drafting cancer-variant evidence statements and wrote the team&#x27;s human-in-the-loop workflow and master prompt." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">AI-Assisted Literature Curation</h1>
+      <p class="subtitle">Workflow designer and evaluator | LLMs, Prompt Design, CIViC</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="project-details">
+      <h2>Overview</h2>
+      <p>Compared 4 LLM tools for drafting cancer-variant evidence statements and wrote the team&#x27;s human-in-the-loop workflow and master prompt.</p>
+      <p>Curating clinical evidence from oncology papers is slow because every paper must be read closely. The question was whether large language models could draft evidence statements that a curator can trust, not just shorter summaries.</p>
+
+      <h2>Key Numbers</h2>
+      <div class="stats">
+        <div class="stat"><span class="num">4</span><span class="lbl">LLM tools compared</span></div>
+        <div class="stat"><span class="num">3</span><span class="lbl">step workflow</span></div>
+        <div class="stat"><span class="num">5–6</span><span class="lbl">papers per session, maximum</span></div>
+        <div class="stat"><span class="num">7</span><span class="lbl">prompting principles</span></div>
+      </div>
+
+      <h2>Tools</h2>
+      <ul class="tool-badges">
+        <li class="tool-pill">Large language models</li>
+        <li class="tool-pill">prompt design</li>
+        <li class="tool-pill">CIViC curation standards</li>
+      </ul>
+
+      <h2>Role</h2>
+      <p>Workflow designer and evaluator. Co-op project at Canada&#x27;s Michael Smith Genome Sciences Centre (BC Cancer) (Sept 2025 – Apr 2026).</p>
+
+      <h2>Description</h2>
+      <ul>
+        <li>Compared 4 tools on real curation tasks and identified which handled long, rule-based prompts and structured output reliably.</li>
+        <li>Wrote a master prompt that sets the curator role, the evidence standards, formatting rules, statement structures for each evidence type and worked examples.</li>
+        <li>Defined a 3-step workflow: initialize the session with the prompt and the curation standard, supply the paper, then verify the output.</li>
+        <li>Built a verification checklist around the most common failure, missing or misreported numbers: sample sizes, endpoints, hazard ratios, confidence intervals and p-values.</li>
+        <li>Found that larger batches mixed metrics between articles, and set a limit of 5 to 6 papers per session.</li>
+        <li>Documented the method as a wiki guide, including a recovery prompt for broken formatting and a rule never to include personal identifiers.</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>The workflow reduces drafting effort while keeping a curator as the final check on every statement. I came away treating prompt engineering as an evaluation problem: the useful work was finding where outputs fail and designing the review that catches it.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Monesha Basker</p>
+  </footer>
+</body>
+</html>

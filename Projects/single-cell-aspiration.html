@@ -4,39 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Automated Single-Cell Aspiration System – Project Details</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="A closed-loop Arduino controller that holds suction within ±0.5 kPa in a microfluidic device that isolates single cells." />
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a href="../index.html" class="back-link">← Back to Portfolio</a>
-    <h1>Automated Single-Cell Aspiration System</h1>
-    <p class="subtitle">Electrical and Software Systems Lead | Arduino, MATLAB, Fritzing, SolidWorks</p>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+    </nav>
   </header>
+
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">Automated Single-Cell Aspiration System</h1>
+      <p class="subtitle">Electrical and software systems lead | Arduino, MATLAB, SolidWorks, Fritzing</p>
+    </div>
+  </section>
 
   <main class="container">
     <section class="project-details">
       <h2>Overview</h2>
-      <p>I led control system design for a microfluidic device that isolates single cells using negative pressure, with closed-loop feedback to maintain target suction.</p>
+      <p>A closed-loop Arduino controller that holds suction within ±0.5 kPa in a microfluidic device that isolates single cells.</p>
+      <p>A microfluidic device captures a single cell by negative pressure. The suction has to be held steady at a chosen level throughout the experiment, which is hard to do by hand.</p>
+
+      <h2>Key Numbers</h2>
+      <div class="stats">
+        <div class="stat"><span class="num">±0.5 kPa</span><span class="lbl">pressure held around target</span></div>
+        <div class="stat"><span class="num">4</span><span class="lbl">person team</span></div>
+      </div>
 
       <h2>Tools</h2>
-      <ul>
-        <li>Arduino Uno, stepper motor control</li>
-        <li>MPX5010 pressure sensor, INA125 instrumentation amplifier</li>
-        <li>MATLAB for early logic tests</li>
-        <li>Fritzing for circuit layout, SolidWorks for fixture design</li>
+      <ul class="tool-badges">
+        <li class="tool-pill">Arduino</li>
+        <li class="tool-pill">MPX5010 pressure sensor</li>
+        <li class="tool-pill">INA125 amplifier</li>
+        <li class="tool-pill">stepper motor</li>
+        <li class="tool-pill">MATLAB</li>
+        <li class="tool-pill">Fritzing</li>
+        <li class="tool-pill">SolidWorks</li>
       </ul>
 
       <h2>Role</h2>
-      <p>Electrical and Software Systems Lead</p>
+      <p>Electrical and software systems lead. UBC design project, team of four.</p>
 
       <h2>Description</h2>
-      <p>I built a feedback loop that compares live pressure to a potentiometer setpoint and adjusts motor steps to keep suction within ±0.5 kPa. I streamed live data to Excel for monitoring and tuned control gains for stable response. I integrated valve logic with the biological loading phase and produced wiring diagrams and test logs for team handoff.</p>
-      <p>The system supports single-cell sequencing and screening workflows where precise, repeatable handling is essential. The project strengthened my skills in embedded control, sensor conditioning, and lab integration.</p>
+      <ul>
+        <li>Built a feedback loop on an Arduino Uno that compares live pressure with a target set by a potentiometer and steps a motor to adjust suction.</li>
+        <li>Conditioned the pressure sensor signal with an instrumentation amplifier.</li>
+        <li>Tested the control logic in MATLAB before moving to hardware.</li>
+        <li>Streamed live data to Excel so the team could monitor pressure during cell loading.</li>
+        <li>Designed the circuit layout in Fritzing and integrated valve control with the biological loading phase.</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>The system maintained pressure within ±0.5 kPa of the target. Leading one subsystem taught me to define the interface with the biology side early, since valve timing depended on their loading protocol.</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2025 Monesha Basker</p>
+    <p>© 2026 Monesha Basker</p>
   </footer>
 </body>
 </html>

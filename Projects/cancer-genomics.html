@@ -3,66 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cancer Genomics & Multi-Omics Analysis – Project Details</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Cancer Genomics &amp; Multi-Omics Analysis – Project Details</title>
+  <meta name="description" content="An R pipeline on TCGA kidney cancer data: patient matching across data types, mutation clustering, survival analysis and pathway enrichment." />
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <header class="topbar">
-    <a class="back-btn" href="../index.html" aria-label="Back to portfolio">←</a>
-    <a class="brand" href="../index.html">Monesha Basker</a>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
     <nav class="nav" aria-label="Primary">
-      <a class="nav-link active" href="../index.html">Projects</a>
-      <a class="nav-link" href="../about.html">About Me</a>
-      <a class="nav-link" href="../work.html">Work</a>
-      <a class="nav-link" href="../contact.html">Contact</a>
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
     </nav>
   </header>
 
-    <h1>Cancer Genomics & Multi-Omics Analysis</h1>
-    <p class="subtitle">Data Analyst and Pipeline Developer | R, DESeq2, ggplot2, TCGA datasets</p>
-  </header>
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">Cancer Genomics &amp; Multi-Omics Analysis</h1>
+      <p class="subtitle">Data analyst and pipeline developer | R, DESeq2, ggplot2, TCGA</p>
+    </div>
+  </section>
 
   <main class="container">
     <section class="project-details">
       <h2>Overview</h2>
-      <p>
-        I developed an R pipeline to study the relationship between genetic mutations and survival in kidney cancer patients using The Cancer Genome Atlas (TCGA). 
-        This work combined both <strong>multi-omics patient matching</strong> across datasets and <strong>downstream genomic analysis</strong> including clustering, survival modeling, and pathway enrichment.
-      </p>
+      <p>An R pipeline on TCGA kidney cancer data: patient matching across data types, mutation clustering, survival analysis and pathway enrichment.</p>
+      <p>Do patterns of somatic mutation relate to survival in clear cell renal cell carcinoma? The data covered more than 500 patients but was spread across clinical, mutation and RNA-seq files with inconsistent identifiers.</p>
+
+      <h2>Key Numbers</h2>
+      <div class="stats">
+        <div class="stat"><span class="num">500+</span><span class="lbl">patients in the TCGA cohort</span></div>
+        <div class="stat"><span class="num">354</span><span class="lbl">patients with complete, matched data</span></div>
+        <div class="stat"><span class="num">50</span><span class="lbl">most-mutated genes used for clustering</span></div>
+        <div class="stat"><span class="num">3</span><span class="lbl">data types aligned</span></div>
+      </div>
 
       <h2>Tools</h2>
-      <ul>
-        <li>R and tidyverse</li>
-        <li>DESeq2 for RNA-seq expression analysis</li>
-        <li>ggplot2 for visualizations</li>
-        <li>survival and survminer for Kaplan–Meier models</li>
-        <li>TCGA ccRCC datasets, cBioPortal</li>
+      <ul class="tool-badges">
+        <li class="tool-pill">R</li>
+        <li class="tool-pill">tidyverse</li>
+        <li class="tool-pill">DESeq2</li>
+        <li class="tool-pill">survival</li>
+        <li class="tool-pill">survminer</li>
+        <li class="tool-pill">ggplot2</li>
+        <li class="tool-pill">TCGA</li>
+        <li class="tool-pill">cBioPortal</li>
       </ul>
 
       <h2>Role</h2>
-      <p>Data Analyst and Pipeline Developer</p>
+      <p>Data analyst and pipeline developer. UBC course project, team of three.</p>
 
       <h2>Description</h2>
-      <p>
-        The first step was ensuring consistency across omics data. I wrote R scripts to parse TCGA barcodes, standardize patient identifiers, 
-        and remove duplicates. This alignment produced a clean core cohort of 354 patients with complete clinical, mutation, and RNA-seq coverage, 
-        enabling downstream analysis without missing or misaligned data.
-      </p>
-      <p>
-        Using this matched cohort, I clustered patients based on binary mutation profiles across the 50 most frequently altered genes, applying Ward.D2 hierarchical clustering. 
-        Kaplan–Meier survival analysis compared outcomes between clusters, while Principal Component Analysis (PCA) confirmed the existence of distinct subgroups. 
-        I then used DESeq2 for differential expression analysis and performed pathway enrichment to identify disrupted biological processes such as metabolism and immune signaling.
-      </p>
-      <p>
-        I generated survival curves, mutation heatmaps, and pathway plots with ggplot2, making the pipeline modular and reproducible. 
-        This project strengthened my ability to integrate data wrangling, unsupervised clustering, and survival modeling, and to connect genomic features to clinical outcomes.
-      </p>
+      <ul>
+        <li>Wrote R scripts that parse TCGA barcodes, standardize patient identifiers and remove duplicates, leaving a core cohort of 354 patients with clinical, mutation and RNA-seq data.</li>
+        <li>Clustered patients on binary mutation profiles of the 50 most frequently altered genes using Ward.D2 hierarchical clustering.</li>
+        <li>Used PCA to check that the subgroups were distinct before comparing them.</li>
+        <li>Compared outcomes between clusters with Kaplan-Meier survival analysis.</li>
+        <li>Ran differential expression with DESeq2 and pathway enrichment, which pointed to disrupted metabolic and immune-signalling pathways.</li>
+        <li>Produced survival curves, mutation heatmaps and pathway plots in ggplot2 for the team&#x27;s report.</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>The pipeline is modular and reproducible. The main lesson was that most of an analysis is decided in the matching and cleaning steps that come before any statistics.</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2025 Monesha Basker</p>
+    <p>© 2026 Monesha Basker</p>
   </footer>
 </body>
 </html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clinical Analytics Dashboard – Project Details</title>
+  <meta name="description" content="An R Shiny dashboard, used by 35+ staff, that traces a tumour variant through evidence, interpreted action, treatment and response." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Monesha</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link active" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#work">Work</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="site-header">
+    <a class="avatar back-btn" href="../index.html#projects" aria-label="Back to projects">←</a>
+    <div>
+      <h1 class="title">Clinical Analytics Dashboard</h1>
+      <p class="subtitle">Developer | R, Shiny, tidyverse, ggplot2</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="project-details">
+      <h2>Overview</h2>
+      <p>An R Shiny dashboard, used by 35+ staff, that traces a tumour variant through evidence, interpreted action, treatment and response.</p>
+      <p>Answering a question such as “which patients share this alteration, what were they treated with, and how did they respond?” meant manually querying several large tables kept in different places. I set out to bring those views into one interactive tool.</p>
+
+      <h2>Key Numbers</h2>
+      <div class="stats">
+        <div class="stat"><span class="num">35+</span><span class="lbl">staff users</span></div>
+        <div class="stat"><span class="num">8</span><span class="lbl">tabs: 5 tables, 3 plot views</span></div>
+        <div class="stat"><span class="num">5</span><span class="lbl">data layers unified</span></div>
+        <div class="stat"><span class="num">4</span><span class="lbl">documented workflows</span></div>
+      </div>
+
+      <h2>Tools</h2>
+      <ul class="tool-badges">
+        <li class="tool-pill">R</li>
+        <li class="tool-pill">Shiny</li>
+        <li class="tool-pill">tidyverse</li>
+        <li class="tool-pill">ggplot2</li>
+      </ul>
+
+      <h2>Role</h2>
+      <p>Developer. Co-op project at Canada&#x27;s Michael Smith Genome Sciences Centre (BC Cancer) (Sept 2025 – Apr 2026).</p>
+
+      <h2>Description</h2>
+      <ul>
+        <li>Unified 5 data layers in one app: knowledge-base matches, therapeutic actions, treatment records, drug-class mappings and treatment outcomes.</li>
+        <li>Built 5 filterable data tables and 3 plot views, with sample filters synchronized across tabs and interdependent gene and drug filters.</li>
+        <li>Added a compound search builder, column reordering and export of the filtered view to Excel.</li>
+        <li>Implemented the mapping from treatments given back to drug classes, which enables response and duration plots by tumour type and treatment class.</li>
+        <li>Built concordance plots comparing knowledge-base matches with the clinical actions taken.</li>
+        <li>Deployed the app on an internal Linux server and wrote a 10-page user guide with 4 worked analysis workflows and known limitations.</li>
+      </ul>
+
+<figure class="figure">
+<svg viewBox="0 0 760 120" role="img" aria-label="Flow from tumour variant to evidence, interpreted action, recorded treatment and response">
+  <g class="flow">
+    <rect x="4" y="34" width="132" height="52" rx="10"/><text x="70" y="65">Tumour variant</text>
+    <rect x="160" y="34" width="132" height="52" rx="10"/><text x="226" y="65">Evidence match</text>
+    <rect x="316" y="34" width="132" height="52" rx="10"/><text x="382" y="65">Interpreted action</text>
+    <rect x="472" y="34" width="132" height="52" rx="10"/><text x="538" y="65">Treatment given</text>
+    <rect x="628" y="34" width="128" height="52" rx="10"/><text x="692" y="65">Response</text>
+    <path d="M138 60h18M294 60h18M450 60h18M606 60h18" class="arrow"/>
+  </g>
+</svg>
+<figcaption>The path a user can follow through the dashboard for one sample. Screenshots are not shown because the app displays confidential clinical data.</figcaption>
+</figure>
+
+      <h2>Outcome</h2>
+      <p>Users can start from a sample, a gene or a drug class and follow it across the other views without writing queries. The app is not meant to replace review; it makes review faster and more connected. Writing the user guide taught me that a tool is finished only when the people it is for can use it without me.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Monesha Basker</p>
+  </footer>
+</body>
+</html>
