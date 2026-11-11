@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
       threshold: 0
     });
 
-    ['about','projects','work','contact']
+    ['about','projects','work','publications','contact']
       .map(id => $('#' + id))
       .filter(Boolean)
       .forEach(sec => observer.observe(sec));
