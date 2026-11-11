@@ -25,7 +25,6 @@ section,
 
 /* Base */
 * { box-sizing: border-box; }
-html, body { height: 100%; }
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -614,4 +613,17 @@ body {
 
 @media (max-width: 640px) {
   .project-details { padding: 4px 16px 18px; }
+}
+
+/* Clear button: outlined, so it does not look like a skill */
+.chips .chip.clear-chip {
+  background: transparent;
+  color: var(--muted);
+  border: 1.5px dashed #9ca3af;
+  box-shadow: none;
+}
+.chips .chip.clear-chip:hover {
+  color: #b91c1c;
+  border-color: #b91c1c;
+  box-shadow: none;
 }
